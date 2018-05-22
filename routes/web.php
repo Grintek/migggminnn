@@ -24,15 +24,25 @@ Route::group(['middleware' => ['web']], function (){
         'uses' => 'UserController@postSignIn',
         'as' => 'signin'
     ]);
+    Route::get('/logout', [
+       'uses' => 'UserController@getLogout',
+        'as' => 'logout'
+    ]);
 
     Route::get('/dashboard', [
-        'uses' => 'UserController@getDashboard',
+        'uses' => 'PostController@getDashboard',
         'as' => 'dashboard',
         'middleware' => 'authe'
     ]);
     Route::post('/createpost', [
         'uses' => 'PostController@postCreatePost',
         'as' => 'post.create'
+    ]);
+
+    Route::get('/delete-post/{post_id}',[
+        'uses' => 'PostController@getDeletePost',
+        'as' => 'post.delete',
+        'middleware' => 'authe'
     ]);
 });
 
