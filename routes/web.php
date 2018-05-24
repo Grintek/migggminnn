@@ -44,5 +44,10 @@ Route::group(['middleware' => ['web']], function (){
         'as' => 'post.delete',
         'middleware' => 'authe'
     ]);
+
+    Route::post('/edit', [
+        'uses' => 'PostController@postEditPost',
+        'as' => 'edit'
+    ]);
 });
 
