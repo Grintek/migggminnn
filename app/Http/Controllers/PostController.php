@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 
 class PostController extends Controller
@@ -50,4 +52,5 @@ class PostController extends Controller
         $post->update();
         return response()->json(['new_body' => $post->body], 200);
     }
+
 }
