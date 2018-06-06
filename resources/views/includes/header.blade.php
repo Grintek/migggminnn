@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class=".navbar-expand-{breakpoint}">
-                <a class="navbar-brand" href="{{ route('dashboard') }}">Brand</a>
+                <a class="navbar-brand" id="brand" href="{{ route('dashboard') }}">Brand</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
