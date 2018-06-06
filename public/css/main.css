@@ -36,3 +36,13 @@
     background-color: #c8ff00;
     color: green;
 }
+body{
+    background-color: black;
+    color: #217b38;
+    text-shadow: 0px 0px 10px gold;
+}
+.img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px 50px;
+}

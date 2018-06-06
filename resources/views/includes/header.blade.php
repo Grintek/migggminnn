@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #0d3625;">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class=".navbar-expand-{breakpoint}">
