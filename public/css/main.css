@@ -55,6 +55,17 @@ button{
     background-color: #0d3625;
     border-radius: 30px;
 }
-#brand{
+.blocLog{
+    position: fixed;
+    width: 40%;
+    margin-right:10%;
+    margin-left:10%;
+    margin-top: 100px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
 
+    background: rgba(78,115,122,1);
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 20px 10px rgba(78,115,166,0.5);
 }
