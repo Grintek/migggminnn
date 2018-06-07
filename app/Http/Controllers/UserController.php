@@ -49,9 +49,16 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('home');
     }
+    public function getRegistr(){
+        return view('registr');
+    }
 
     public function getAccount(){
-        return view('account', ['user' => Auth::user()]);
+        if(Auth::user()){
+          return view('account', ['user' => Auth::user()]);
+        }else {
+            return redirect()->route('home');
+        }
     }
     public function postSaveAccount(Request $request){
         $this->validate($request, [

@@ -28,6 +28,10 @@ Route::group(['middleware' => ['web']], function (){
        'uses' => 'UserController@getLogout',
         'as' => 'logout'
     ]);
+    Route::get('/registr', [
+       'uses' => 'UserController@getRegistr',
+        'as' => 'registr'
+    ]);
     Route::get('/account', [
        'uses' => 'UserController@getAccount',
         'as' => 'account'

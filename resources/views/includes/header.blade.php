@@ -10,8 +10,14 @@
             <div class="row">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-link"><a href="{{route('account')}}">Account</a></li>
-                    <li class="nav-link"><a href="{{route('logout')}}">Logout</a></li>
+
+                        @if(Auth::user())
+                        <li class="nav-link"><a href="{{route('account')}}">Аккаунт</a></li>
+                    <li class="nav-link"><a href="{{route('logout')}}">Выход</a></li>
+                    @else
+                        <li class="nav-link"><a href="{{route('registr')}}">Регистрация</a></li>
+                    @endif
+
                 </ul>
                 </form>
             </div><!-- /.navbar-collapse -->
