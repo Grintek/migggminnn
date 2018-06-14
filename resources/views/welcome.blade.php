@@ -7,7 +7,7 @@
 @section('content')
     @include('includes.message-block')
     <div class="blocLog">
-        <div class="col-md-6">
+        <div class="col-md-6 blocLog2">
             <h3>Sign In</h3>
             <form action="{{ route('signin') }}" method="post">
                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">

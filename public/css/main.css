@@ -1,6 +1,6 @@
 .new-post {
     padding: 16px 0;
-    border-bottom: 1px solid #ccc;
+
 }
 
 .new-post header,
@@ -41,10 +41,15 @@
     background-color: #c8ff00;
     color: green;
 }
+html, body{
+    height: 100%;
+}
 body{
-    background-color: black;
+    background: linear-gradient(#262626, black 30%) no-repeat;
     color: #217b38;
     text-shadow: 0px 0px 6px gold;
+    background-size: 100%;
+    background-attachment: fixed;
 }
 .img{
     height: 50px;
@@ -56,16 +61,38 @@ button{
     border-radius: 30px;
 }
 .blocLog{
-    position: fixed;
-    width: 40%;
-    margin-right:10%;
-    margin-left:10%;
-    margin-top: 100px;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 1%;
-
+    margin-top: 200px;
+    position: relative;
+}
+.blocLog2{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    padding-bottom: 10px;
+    transform: translate(-50%, -50%);
     background: rgba(78,115,122,1);
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 0px 20px 10px rgba(78,115,166,0.5);
 }
+.blocLog_center{
+
+    transform: translate(20%, 10%);
+}
+.blocLog_center2{
+    position: absolute;
+    transform: translate(1400px, -88%);
+}
+.blocChat{
+    text-shadow: none;
+    padding-right: 100px;
+    padding-left: 10px;
+    background: rgba(176,207,184,0.37);
+    border-radius: 10px;
+}
+.blocChat_fon{
+    padding-top: 10px;
+    background-color: rgba(0,83,255,0.2);
+}
+

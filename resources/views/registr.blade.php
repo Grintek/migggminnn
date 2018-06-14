@@ -6,7 +6,7 @@
 
 @section('content')
     @include('includes.message-block')
-    <div class="row">
+    <div class="row blocLog_center">
         <div class="col-md-6">
             <h3>Sign UP</h3>
             <form action="{{ route('signup') }}" method="post">

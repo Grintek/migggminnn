@@ -11,6 +11,9 @@
 <div class="container">
     @yield('content')
 </div>
+<div class="container-fluid">
+    @yield('contentBrand')
+</div>
 
 <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
