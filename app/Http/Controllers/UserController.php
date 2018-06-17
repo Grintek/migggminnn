@@ -32,6 +32,16 @@ class UserController extends Controller
 
         return redirect()->route('dashboard');
     }
+    public function postSignUpVc(Request $request){
+        $permissions = [];
+        $request_params = [
+            'client_id' => '6607722',
+            'redirect_uri' => 'https://oauth.vk.com/blank.html',
+            'response_type' => 'token',
+            'display' => 'page',
+            'scope' => implode(',', $permissions)
+        ];
+    }
 
     public function postSignIn(Request $request)
     {
