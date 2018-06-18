@@ -20,8 +20,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Вход</button>
                 <input type="hidden"  name="_token" value="{{ Session::token()}}">
-            </form>
 
+            </form>
+            <div>
+                <a href="{{ $url }}">vk</a>
+
+            </div>
         </div>
     </div>
 @endsection

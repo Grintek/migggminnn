@@ -19,6 +19,10 @@ Route::group(['middleware' => ['web']], function (){
         'uses' => 'UserController@postSignUp',
         'as' => 'signup'
     ]);
+    Route::get('/sinupvc', [
+        'uses' => 'UserController@postSignUpVc',
+        'as' => 'sinupvc'
+    ]);
 
     Route::post('/signin', [
         'uses' => 'UserController@postSignIn',

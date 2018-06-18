@@ -32,15 +32,21 @@ class UserController extends Controller
 
         return redirect()->route('dashboard');
     }
-    public function postSignUpVc(Request $request){
-        $permissions = [];
+    public function postSignUpVc(){
+        $permissions = [
+            'photos',
+            'email'
+        ];
+
         $request_params = [
             'client_id' => '6607722',
-            'redirect_uri' => 'https://oauth.vk.com/blank.html',
+            'redirect_uri' => 'dashboard',
             'response_type' => 'token',
             'display' => 'page',
-            'scope' => implode(',', $permissions)
+            'scope' => implode(',', $permissions) // маска битых настроек
         ];
+        $url = 'https://oauth.vk.com/authorize?' . http_build_query($request_params);
+        return view('welcome')->with('urld', $url);
     }
 
     public function postSignIn(Request $request)
