@@ -23,7 +23,7 @@
 
             </form>
             <div>
-                <a href="{{ $url }}">vk</a>
+
 
             </div>
         </div>

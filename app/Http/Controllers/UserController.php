@@ -46,7 +46,7 @@ class UserController extends Controller
             'scope' => implode(',', $permissions) // маска битых настроек
         ];
         $url = 'https://oauth.vk.com/authorize?' . http_build_query($request_params);
-        return view('welcome')->with('urld', $url);
+
     }
 
     public function postSignIn(Request $request)
