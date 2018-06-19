@@ -40,13 +40,13 @@ class UserController extends Controller
 
         $request_params = [
             'client_id' => '6607722',
-            'redirect_uri' => 'dashboard',
+            'redirect_uri' => 'https://oauth.vk.com/blank.html',
             'response_type' => 'token',
             'display' => 'page',
             'scope' => implode(',', $permissions) // маска битых настроек
         ];
-        $url = 'https://oauth.vk.com/authorize?' . http_build_query($request_params);
-
+        $url = 'wwww';  //'https://oauth.vk.com/authorize?' . http_build_query($request_params);
+        return view('url');
     }
 
     public function postSignIn(Request $request)
