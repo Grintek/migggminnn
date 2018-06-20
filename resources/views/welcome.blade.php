@@ -25,6 +25,11 @@
             <div>
 
 
+                    <a href="{{$url}}">VVVKKK</a>
+
+
+
+
             </div>
         </div>
     </div>

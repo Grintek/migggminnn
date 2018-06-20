@@ -1,5 +1,6 @@
 <?php
 Route::get('about', 'PagesController@about');
+Route::get('article', 'ArticleController@iny');
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,13 @@ Route::group(['middleware' => ['web']], function (){
         'uses' => 'UserController@postSignUp',
         'as' => 'signup'
     ]);
-    Route::get('/sinupvc', [
-        'uses' => 'UserController@postSignUpVc',
-        'as' => 'sinupvc'
-    ]);
+
+
+    //cсылка на вк авторизацию
+    Route::get('', 'UserController@postSignUpVc');
+
+
+
 
     Route::post('/signin', [
         'uses' => 'UserController@postSignIn',
