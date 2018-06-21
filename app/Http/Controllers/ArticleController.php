@@ -13,4 +13,11 @@ class ArticleController extends Controller
 
         return view('includes.test.article', compact('articles'));
     }
+
+    public function show($id){
+
+        $article = Article::findOrFail($id);
+
+        return view('includes.test.show', compact('article'));
+    }
 }

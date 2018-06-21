@@ -40,13 +40,18 @@ class UserController extends Controller
 
         $request_params = [
             'client_id' => '6607722',
-            'redirect_uri' => 'https://vk.com/editapp?id=6607722',
+            'redirect_uri' => 'http://127.0.0.1:8000/vkaut',
             'response_type' => 'token',
             'display' => 'page',
             'scope' => implode(',', $permissions) // маска битых настроек
         ];
         $url = 'https://oauth.vk.com/authorize?' . http_build_query($request_params);
         return view('welcome', compact('url'));
+    }
+    public function postVkaut(){
+
+        $getVk = 'acses'.$_GET['email'] . 'user_id' . $_GET['user_id'];
+        return view('vk_aut', compact('getVk'));
     }
 
     public function postSignIn(Request $request)

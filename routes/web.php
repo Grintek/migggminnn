@@ -1,6 +1,7 @@
 <?php
 Route::get('about', 'PagesController@about');
 Route::get('article', 'ArticleController@iny');
+Route::get('article/{id}', 'ArticleController@show');
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,10 @@ Route::group(['middleware' => ['web']], function (){
     //cсылка на вк авторизацию
     Route::get('', 'UserController@postSignUpVc');
 
-
-
+    Route::get('/vkaut', [
+        'uses' => 'UserController@postVkaut',
+        'as' => 'vkaut'
+]);
 
     Route::post('/signin', [
         'uses' => 'UserController@postSignIn',

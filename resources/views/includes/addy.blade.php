@@ -8,7 +8,7 @@
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
-<header><h1>Blog</h1></header>
+
 <div class="container">
     @yield('content_ter')
 </div>
