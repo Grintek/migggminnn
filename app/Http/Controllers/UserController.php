@@ -50,7 +50,14 @@ class UserController extends Controller
     }
     public function postVkaut(){
 
-        $getVk = 'acses'.$_GET['email'] . 'user_id' . $_GET['user_id'];
+
+        if (!empty($_GET["email"])&&!empty($_GET["user_id"]))
+        {
+            $getVk = " Получены новые вводные: email - ".$_GET["email"].", id - ".$_GET["user_id"]." лет";}
+        else {
+            $getVk = "Переменные не дошли. Проверьте все еще раз.";
+        }
+
         return view('vk_aut', compact('getVk'));
     }
 

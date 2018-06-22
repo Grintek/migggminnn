@@ -2,6 +2,7 @@
 Route::get('about', 'PagesController@about');
 Route::get('article', 'ArticleController@iny');
 Route::get('article/{id}', 'ArticleController@show');
+Route::get('article/control', 'ArticleController@control');
 
 /*
 |--------------------------------------------------------------------------

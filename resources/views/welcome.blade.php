@@ -25,7 +25,7 @@
             <div>
 
 
-                    <a href="{{ urldecode($url) }}">VVVKKK</a>
+                    <a href="{{ $url }}">VVVKKK</a>
 
 
 

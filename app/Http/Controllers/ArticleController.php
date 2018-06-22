@@ -20,4 +20,11 @@ class ArticleController extends Controller
 
         return view('includes.test.show', compact('article'));
     }
+    public function control(){
+
+
+        return view('includes.test.control');
+
+
+    }
 }
