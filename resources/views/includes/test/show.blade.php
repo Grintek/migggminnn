@@ -12,3 +12,4 @@
 
             <h4>{{ $article->body_a }}</h4>
         </article>
+@stop

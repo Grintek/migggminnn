@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Html\FormFacade;
+
+use Request;
 
 class ArticleController extends Controller
 {
@@ -26,5 +29,12 @@ class ArticleController extends Controller
         return view('includes.test.control');
 
 
+    }
+    public function store(){
+        $input = Request::all();
+        $input['published_at'] = Carbon::now();
+        Article::create($input);
+
+        return redirect('article');
     }
 }

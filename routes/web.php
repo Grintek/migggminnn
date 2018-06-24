@@ -1,8 +1,11 @@
 <?php
 Route::get('about', 'PagesController@about');
+
 Route::get('article', 'ArticleController@iny');
-Route::get('article/{id}', 'ArticleController@show');
 Route::get('article/control', 'ArticleController@control');
+Route::get('article/{id}', 'ArticleController@show');
+Route::post('article', 'ArticleController@store');
+
 
 /*
 |--------------------------------------------------------------------------
