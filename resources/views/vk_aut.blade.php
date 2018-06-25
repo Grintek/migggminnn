@@ -6,9 +6,6 @@
 
 @section('content')
 
-    <p>{{ route('vkaut') }}</p>
-    <p>{{ $getVk }}</p>
-    <?php
-    echo $_GET['email'];
-    ?>
+
+
 @endsection

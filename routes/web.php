@@ -6,6 +6,10 @@ Route::get('article/control', 'ArticleController@control');
 Route::get('article/{id}', 'ArticleController@show');
 Route::post('article', 'ArticleController@store');
 
+//Тест №2
+Route::get('/test', 'TaskController@panel');
+Route::get('/test/task', 'TaskController@panelNew');
+Route::get('/test/task/{task}', 'TaskController@panelDelete');
 
 /*
 |--------------------------------------------------------------------------
@@ -31,10 +35,11 @@ Route::group(['middleware' => ['web']], function (){
     //cсылка на вк авторизацию
     Route::get('', 'UserController@postSignUpVc');
 
-    Route::get('/vkaut', [
-        'uses' => 'UserController@postVkaut',
+    Route::get('vkaut', [
+        'uses' => 'PagesController@postVkaut',
         'as' => 'vkaut'
 ]);
+    Route::get('vkaut', 'PagesController@postVka');
 
     Route::post('/signin', [
         'uses' => 'UserController@postSignIn',

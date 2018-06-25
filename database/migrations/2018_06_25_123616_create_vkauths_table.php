@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVkauthTable extends Migration
+class CreateVkauthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVkauthTable extends Migration
      */
     public function up()
     {
-        Schema::create('"vkath"', function (Blueprint $table) {
+        Schema::create('vkauths', function (Blueprint $table) {
             $table->increments('id');
             $table->string('access_token');
             $table->integer('expires_in');
@@ -30,6 +30,6 @@ class CreateVkauthTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('"vkath"');
+        Schema::dropIfExists('vkauths');
     }
 }

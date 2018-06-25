@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -48,18 +49,7 @@ class UserController extends Controller
         $url = 'https://oauth.vk.com/authorize?' . http_build_query($request_params);
         return view('welcome', compact('url'));
     }
-    public function postVkaut(){
 
-
-        if (!empty($_GET["email"])&&!empty($_GET["user_id"]))
-        {
-            $getVk = " Получены новые вводные: email - ".$_GET["email"].", id - ".$_GET["user_id"]." лет";}
-        else {
-            $getVk = "Переменные не дошли. Проверьте все еще раз.";
-        }
-
-        return view('vk_aut', compact('getVk'));
-    }
 
     public function postSignIn(Request $request)
     {
