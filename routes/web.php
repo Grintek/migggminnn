@@ -8,8 +8,8 @@ Route::post('article', 'ArticleController@store');
 
 //Тест №2
 Route::get('/test', 'TaskController@panel');
-Route::get('/test/task', 'TaskController@panelNew');
-Route::get('/test/task/{task}', 'TaskController@panelDelete');
+Route::post('/test/task', 'TaskController@panelNew');
+Route::delete('/test/task/{task}', 'TaskController@panelDelete');
 
 /*
 |--------------------------------------------------------------------------
