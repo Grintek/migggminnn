@@ -29,8 +29,9 @@ class TaskController extends Controller
         return redirect('test');
     }
 
-    public function panelDelete(){
-
+    public function panelDelete(Task $task){
+        $task->delete();
+        return redirect('test');
     }
 
 }

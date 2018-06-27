@@ -34,17 +34,17 @@ class UserController extends Controller
         return redirect()->route('dashboard');
     }
     public function postSignUpVc(){
-        $permissions = [
+       /* $permissions = [
             'photos',
             'email'
         ];
-
+       */
         $request_params = [
             'client_id' => '6607722',
             'redirect_uri' => 'http://127.0.0.1:8000/vkaut',
-            'response_type' => 'token',
+            'response_type' => 'code',
             'display' => 'page',
-            'scope' => implode(',', $permissions) // маска битых настроек
+           // 'scope' => implode(',', $permissions) // маска битых настроек
         ];
         $url = 'https://oauth.vk.com/authorize?' . http_build_query($request_params);
         return view('welcome', compact('url'));

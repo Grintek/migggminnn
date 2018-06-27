@@ -3,29 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Vkauth;
 use Illuminate\Support\Facades\Input;
-use Request;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function about(){
+    public function about()
+    {
 
         $articles = Article::all();
 
         return view('includes.about', compact('articles'));
 
     }
-    public function postVkaut(){
 
+    public function postVkaut(Request $request)
+    {
 
+        dd($request->all());
 
-        return view('vk_aut');
+        view('vk_aut');
     }
-    public function postVka(){
 
-
-
-        return view('vk_aut');
-    }
 
 }
