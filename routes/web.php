@@ -38,7 +38,7 @@ Route::group(['middleware' => ['web']], function (){
     Route::get('vkaut', [
         'uses' => 'PagesController@postVkaut',
         'as' => 'vkaut'
-]);
+])->name('home');
 
 
     Route::post('/signin', [
