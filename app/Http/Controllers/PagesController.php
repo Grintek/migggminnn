@@ -21,9 +21,19 @@ class PagesController extends Controller
     public function postVkaut(Request $request)
     {
 
-        dd($request->all());
+        $code = $request->input('code');
 
-        view('vk_aut');
+        $request_token = [
+
+            'client_id' => '6607722',
+            'client_secret' => 'PaWvqbzE7qeKtfaijboK',
+            'redirect_uri' => 'http://127.0.0.1:8000/vkaut',
+            'code' => $code
+        ];
+        $sylka_token = 'https://oauth.vk.com/access_token'.'?'. http_build_query($request_token);
+        $token = file_get_contents($sylka_token);
+
+       return view('vk_aut', compact('token'));
     }
 
 

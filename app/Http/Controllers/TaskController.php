@@ -23,15 +23,16 @@ class TaskController extends Controller
                 ->withInput()
                 ->withErrors($validate);
         }
-        $task = new Task();
-        $task->name = $request->name;
-        $task->save();
+        $tasks = new Task();
+        $tasks->name = $request->name;
+        $tasks->save();
         return redirect('test');
     }
 
     public function panelDelete(Task $task){
         $task->delete();
         return redirect('test');
+
     }
 
 }

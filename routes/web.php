@@ -35,10 +35,11 @@ Route::group(['middleware' => ['web']], function (){
     //cсылка на вк авторизацию
     Route::get('', 'UserController@postSignUpVc');
 
-    Route::any('vkaut', [
+    Route::get('vkaut', [
         'uses' => 'PagesController@postVkaut',
         'as' => 'vkaut'
 ]);
+
 
     Route::post('/signin', [
         'uses' => 'UserController@postSignIn',
