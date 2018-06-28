@@ -6,5 +6,5 @@
 
 @section('content')
 
-{{ $token }}
+{{ $token['email'] }}
 @endsection

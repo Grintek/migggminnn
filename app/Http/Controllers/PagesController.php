@@ -18,7 +18,7 @@ class PagesController extends Controller
 
     }
 
-    public function postVkaut(Request $request)
+    public function postVkaut(Request $request, Vkauth $vkauth)
     {
 
         $code = $request->input('code');
@@ -31,7 +31,7 @@ class PagesController extends Controller
             'code' => $code
         ];
         $sylka_token = 'https://oauth.vk.com/access_token'.'?'. http_build_query($request_token);
-        $token = file_get_contents($sylka_token);
+        $token = json_decode(file_get_contents($sylka_token), true);
 
        return view('vk_aut', compact('token'));
     }
