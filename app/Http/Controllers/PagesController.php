@@ -36,17 +36,20 @@ class PagesController extends Controller
 
 
        $vkaut = new Vkauth();
-       if (Auth::attempt(['email' => $request['user_id']])) {
-           $vkaut->access_token = $token['access_token'];
-           $vkaut->expires_in = $token['expires_in'];
-           $vkaut->user_id = $token['user_id'];
-           $vkaut->email = $token['email'];
-           $vkaut->save();
-           return redirect()->route('dashboard');
+        /*$vkaut->access_token = $token['access_token'];
+        $vkaut->expires_in = $token['expires_in'];
+        $vkaut->user_id = $token['user_id'];
+        $vkaut->email = $token['email'];
+        $vkaut->save();
+        */
+      if (Auth::attempt(['email' => $token['user_id']])) {
 
+          return 'true';
+          // return redirect()->route('dashboard');
        }
 
-        return redirect()->back();
+        return 'false';
+       // return redirect()->back();
     }
 
 

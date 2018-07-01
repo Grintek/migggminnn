@@ -25,7 +25,12 @@
             <div>
 
 
-                    <a href="{{ route('vk') }}">VVVKKK</a>
+                <form action="{{route('vk')}}">
+                    <button type="submit" class="btn btn-primary">ВК</button>
+                    <input type="hidden"  name="_token" value="{{ Session::token()}}">
+                </form>
+
+
 
 
 

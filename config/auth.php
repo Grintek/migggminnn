@@ -69,6 +69,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'vkauths' => [
+            'driver' => 'database',
+            'model' => App\Vkauth::class,
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',
