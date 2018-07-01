@@ -31,23 +31,23 @@ Route::group(['middleware' => ['web']], function (){
         'as' => 'signup'
     ]);
 
-
-    //cсылка на вк авторизацию
-    Route::get('', 'UserController@postSignUpVc');
-
-    Route::get('vkaut', [
-        'uses' => 'PagesController@postVkaut',
-        'as' => 'vkaut'
-])->name('home');
-
-
     Route::post('/signin', [
         'uses' => 'UserController@postSignIn',
         'as' => 'signin'
     ]);
+    //cсылка на вк авторизацию
+
+
+
+
     Route::get('/logout', [
        'uses' => 'UserController@getLogout',
         'as' => 'logout'
+    ]);
+    Route::get('/dashboard', [
+        'uses' => 'PostController@getDashboard',
+        'as' => 'dashboard',
+        'middleware' => 'authe'
     ]);
     Route::get('/registr', [
        'uses' => 'UserController@getRegistr',
@@ -66,11 +66,7 @@ Route::group(['middleware' => ['web']], function (){
         'as' => 'account.image'
     ]);
 
-    Route::get('/dashboard', [
-        'uses' => 'PostController@getDashboard',
-        'as' => 'dashboard',
-        'middleware' => 'authe'
-    ]);
+
     Route::post('/createpost', [
         'uses' => 'PostController@postCreatePost',
         'as' => 'post.create'
@@ -89,6 +85,15 @@ Route::group(['middleware' => ['web']], function (){
     Route::post('/like', [
        'uses' => 'PostController@postLikePost',
         'as' => 'like'
+    ]);
+    Route::get('/vk', [
+        'uses' => 'UserController@postSignUpVc',
+        'as' => 'vk'
+    ]);
+
+    Route::get('/vkaut', [
+        'uses' => 'PagesController@postVkaut',
+        'as' => 'vkaut'
     ]);
 });
 

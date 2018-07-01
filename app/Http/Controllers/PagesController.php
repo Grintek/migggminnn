@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Vkauth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 
@@ -35,12 +36,17 @@ class PagesController extends Controller
 
 
        $vkaut = new Vkauth();
-        $vkaut->access_token = $token['access_token'];
-        $vkaut->expires_in = $token['expires_in'];
-        $vkaut->user_id = $token['user_id'];
-        $vkaut->email = $token['email'];
-        $vkaut->save();
-       return redirect('welcome');
+       if (Auth::attempt(['email' => $request['user_id']])) {
+           $vkaut->access_token = $token['access_token'];
+           $vkaut->expires_in = $token['expires_in'];
+           $vkaut->user_id = $token['user_id'];
+           $vkaut->email = $token['email'];
+           $vkaut->save();
+           return redirect()->route('dashboard');
+
+       }
+
+        return redirect()->back();
     }
 
 

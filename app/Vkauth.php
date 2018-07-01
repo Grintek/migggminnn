@@ -2,14 +2,11 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Vkauth extends Model
+class Vkauth extends Model implements Authenticatable
 {
-    protected $fillable = [
-        'access_token',
-        'expires_in',
-        'user_id',
-        'email'
-    ];
+    use \Illuminate\Auth\Authenticatable;
+
 }

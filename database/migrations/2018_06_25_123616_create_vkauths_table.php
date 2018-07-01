@@ -15,11 +15,12 @@ class CreateVkauthsTable extends Migration
     {
         Schema::create('vkauths', function (Blueprint $table) {
             $table->increments('id');
+            $table->timestamps();
             $table->string('access_token');
             $table->integer('expires_in');
             $table->integer('user_id');
             $table->string('email');
-            $table->timestamps();
+            $table->rememberToken();
         });
     }
 

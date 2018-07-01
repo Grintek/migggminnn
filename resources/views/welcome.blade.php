@@ -25,7 +25,8 @@
             <div>
 
 
-                    <a href="{{ $url }}">VVVKKK</a>
+                    <a href="{{ route('vk') }}">VVVKKK</a>
+
 
 
 
