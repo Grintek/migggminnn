@@ -35,14 +35,15 @@ class PagesController extends Controller
         $token = json_decode(file_get_contents($sylka_token), true);
 
 
-       $vkaut = new Vkauth();
-        /*$vkaut->access_token = $token['access_token'];
-        $vkaut->expires_in = $token['expires_in'];
-        $vkaut->user_id = $token['user_id'];
-        $vkaut->email = $token['email'];
-        $vkaut->save();
-        */
-      if (Auth::attempt(['email' => $token['user_id']])) {
+
+      $vkaut = new Vkauth();
+        $access_token = $token['access_token'];
+        $expires_in = $token['expires_in'];
+        $user_id = $token['user_id'];
+        $email = $token['email'];
+       // $vkaut->save();
+
+      if (Auth::attempt(['user_id' => $user_id, 'email' => $email])) {
 
           return 'true';
           // return redirect()->route('dashboard');
@@ -50,6 +51,13 @@ class PagesController extends Controller
 
         return 'false';
        // return redirect()->back();
+
+    }
+    public function postVkaTok(Request $request){
+//        $pad = $this->postVkaut();
+//        $request->$pad;
+
+        return $request->all();
     }
 
 

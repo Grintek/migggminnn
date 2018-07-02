@@ -43,7 +43,7 @@ return [
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'vkauths',
         ],
     ],
 
@@ -68,10 +68,12 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+
         ],
         'vkauths' => [
-            'driver' => 'database',
+            'driver' => 'eloquent',
             'model' => App\Vkauth::class,
+
         ],
 
 
