@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
+
 use App\Article;
 use App\Vkauth;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+
 
 class PagesController extends Controller
 {
@@ -40,18 +42,19 @@ class PagesController extends Controller
         $expires_in = $token['expires_in'];
         $user_id = $token['user_id'];
         $email = $token['email'];
-        // $vkaut->save();
+        $vkaut->access_token = $access_token;
+        $vkaut->expires_in = $expires_in;
+        $vkaut->user_id = $user_id;
+        $vkaut->email = $email;
 
-        $user = DB::table('vkauths')->select('user_id')->get();
-        //Auth::loginUsingId($token['id']);
+        if (Auth::attempt(['email' => $token['user_id']])){
 
+        }
 
-        return $user;
-
-
-
+        return redirect()->route('dashboard');
        // return redirect()->back();
-}
+
+    }
     public function postVkaTok(Request $request){
 //        $pad = $this->postVkaut();
 //        $request->$pad;
