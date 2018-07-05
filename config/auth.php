@@ -104,6 +104,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'vkauths' => [
+            'provider' => 'vkauths',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
     ],
 
 ];

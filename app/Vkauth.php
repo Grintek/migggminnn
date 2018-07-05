@@ -9,4 +9,9 @@ class Vkauth extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
 
+    public function getAuthPassword() {
+        $arr = true;
+        return $this->true;
+    }
+
 }

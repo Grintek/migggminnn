@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Vkauth;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 
 class PagesController extends Controller
@@ -33,11 +34,12 @@ class PagesController extends Controller
             'redirect_uri' => 'http://127.0.0.1:8000/vkaut',
             'code' => $code
         ];
-        $sylka_token = 'https://oauth.vk.com/access_token' . '?' . http_build_query($request_token);
+        $sylka_token = 'https://oauth.vk.com/access_token'.'?'. http_build_query($request_token);
         $token = json_decode(file_get_contents($sylka_token), true);
 
 
-        $vkaut = new Vkauth();
+
+      $vkaut = new Vkauth();
         $access_token = $token['access_token'];
         $expires_in = $token['expires_in'];
         $user_id = $token['user_id'];
@@ -46,13 +48,19 @@ class PagesController extends Controller
         $vkaut->expires_in = $expires_in;
         $vkaut->user_id = $user_id;
         $vkaut->email = $email;
+       // $vkaut->save();
 
-        if (Auth::attempt(['email' => $token['user_id']])){
 
-        }
 
-        return redirect()->route('dashboard');
-       // return redirect()->back();
+       // Auth::loginUsingId(6);
+      //if (Auth::attempt(['user_id' => $user_id, 'password' => true])) {
+
+        //  return 'true';
+         //  return redirect()->route('dashboard');
+      // }
+
+
+        return $vkaut;
 
     }
     public function postVkaTok(Request $request){
