@@ -43,7 +43,13 @@ class PagesController extends Controller
         $access_token = $token['access_token'];
         $expires_in = $token['expires_in'];
         $user_id = $token['user_id'];
-        $email = $token['email'];
+        if(!empty($token['email'])){
+            $email = $token['email'];
+        }else{
+            $token['email'] = '@';
+            $email = $token['email'];
+        }
+
         $vkaut->access_token = $access_token;
         $vkaut->expires_in = $expires_in;
         $vkaut->user_id = $user_id;
@@ -52,15 +58,15 @@ class PagesController extends Controller
 
 
 
-       // Auth::loginUsingId(6);
-      //if (Auth::attempt(['user_id' => $user_id, 'password' => true])) {
-
-        //  return 'true';
-         //  return redirect()->route('dashboard');
-      // }
+      // Auth::loginUsingId(2);
 
 
-        return $vkaut;
+
+       // return redirect()->route('dashboard');
+
+
+        $results = DB::select('select * from vkauths where user_id = 495578802');
+       return $results;
 
     }
     public function postVkaTok(Request $request){
