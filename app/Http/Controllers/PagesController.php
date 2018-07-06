@@ -49,24 +49,36 @@ class PagesController extends Controller
             $token['email'] = '@';
             $email = $token['email'];
         }
+        $res = DB::select('select * from vkauths where user_id = '.$token['user_id']);
+        foreach ($res as $r){
+            $r->user_id;
+            $r->access_token;
+        }
+        //если есть дааный user_id то только обновляю token а если нет то создаю нового пользователя
+        if($r->user_id == $token['user_id']) {
+            DB::table('vkauths')
+                ->where('user_id', $r->user_id)
+                ->update(
+                    ['access_token' => $token['access_token']],
+                    ['expires_in' => $token['expires_in']]
+                    );
 
-        $vkaut->access_token = $access_token;
-        $vkaut->expires_in = $expires_in;
-        $vkaut->user_id = $user_id;
-        $vkaut->email = $email;
-       // $vkaut->save();
+        }else{
+            $vkaut->access_token = $access_token;
+            $vkaut->expires_in = $expires_in;
+            $vkaut->user_id = $user_id;
+            $vkaut->email = $email;
+            $vkaut->save();
+        }
 
+        //$results = DB::select('select id from vkauths where user_id = '.$token['user_id']);
 
+        foreach ($res as $sir){
+            $sir->id;
+        }
+        Auth::loginUsingId($sir->id);
 
-      // Auth::loginUsingId(2);
-
-
-
-       // return redirect()->route('dashboard');
-
-
-        $results = DB::select('select * from vkauths where user_id = 495578802');
-       return $results;
+       return redirect()->route('dashboard');
 
     }
     public function postVkaTok(Request $request){
