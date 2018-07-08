@@ -39,7 +39,7 @@ class PagesController extends Controller
 
 
 
-      $vkaut = new Vkauth();
+        $vkaut = new Vkauth();
         $access_token = $token['access_token'];
         $expires_in = $token['expires_in'];
         $user_id = $token['user_id'];
@@ -62,7 +62,6 @@ class PagesController extends Controller
                     ['access_token' => $token['access_token']],
                     ['expires_in' => $token['expires_in']]
                     );
-
         }else{
             $vkaut->access_token = $access_token;
             $vkaut->expires_in = $expires_in;
@@ -71,14 +70,17 @@ class PagesController extends Controller
             $vkaut->save();
         }
 
-        //$results = DB::select('select id from vkauths where user_id = '.$token['user_id']);
+        $results = DB::select('select id from vkauths where user_id = '.$token['user_id']);
+
 
         foreach ($res as $sir){
             $sir->id;
         }
+
         Auth::loginUsingId($sir->id);
 
-       return redirect()->route('dashboard');
+
+        return redirect()->route('dashboard');
 
     }
     public function postVkaTok(Request $request){

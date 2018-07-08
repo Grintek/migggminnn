@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
-use Auth;
+use App\Exceptions\RiakUserProvider;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-use Illuminate\Support\ServiceProvider;
 
 class VkServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,12 @@ class VkServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->registerPolicies();
 
+        Auth::provider('riak', function ($app, array $config){
+
+            return new RiakUserProvider($app->make('Vkauth'));
+        });
     }
 
     /**

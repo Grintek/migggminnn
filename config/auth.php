@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'vck',
         'passwords' => 'users',
     ],
 
@@ -37,6 +37,10 @@ return [
 
     'guards' => [
         'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'vck' => [
             'driver' => 'session',
             'provider' => 'vkauths',
         ],

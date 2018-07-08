@@ -14,7 +14,7 @@ class AddExcerptToVkauthsTable extends Migration
     public function up()
     {
         Schema::table('vkauths', function (Blueprint $table) {
-            $table->rememberToken()->nullable();
+            $table->string('email')->nullable();
         });
     }
 
