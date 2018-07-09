@@ -20,6 +20,7 @@ class CreateVkauthsTable extends Migration
             $table->integer('expires_in');
             $table->integer('user_id');
             $table->string('email')->nullable();
+            $table->string('first_name')->nullable();
             $table->rememberToken();
         });
     }

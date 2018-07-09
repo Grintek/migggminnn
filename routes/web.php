@@ -21,7 +21,7 @@ Route::delete('/test/task/{task}', 'TaskController@panelDelete');
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => ['vck']], function (){
+Route::group(['middleware' => 'vck'], function (){
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
@@ -99,6 +99,10 @@ Route::group(['middleware' => ['vck']], function (){
         'uses' => 'PagesController@postVkaTok',
         'as' => 'tok'
     ]);
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
+    Route::get('/admin', function() { echo "HELLO WORLD"; } );
 });
 
 

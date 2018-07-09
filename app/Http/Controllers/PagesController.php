@@ -50,6 +50,14 @@ class PagesController extends Controller
             $email = $token['email'];
         }
         $res = DB::select('select * from vkauths where user_id = '.$token['user_id']);
+        if($res == null){
+            $vkaut->access_token = $access_token;
+            $vkaut->expires_in = $expires_in;
+            $vkaut->user_id = $user_id;
+            $vkaut->email = $email;
+            $vkaut->save();
+            $res = DB::select('select * from vkauths where user_id = '.$token['user_id']);
+        }
         foreach ($res as $r){
             $r->user_id;
             $r->access_token;

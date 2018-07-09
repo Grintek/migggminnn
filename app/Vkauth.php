@@ -9,9 +9,16 @@ class Vkauth extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
 
-    public function getAuthPassword() {
-        $arr = true;
-        return $this->true;
+    public function posts()
+    {
+        return $this->hasMany('App\Post', 'user_id');
+    }
+    public function likes(){
+        return $this->hasMany('App\Like');
+    }
+    public function isAdmin(){
+
+        return $this->is_admin;
     }
 
 }

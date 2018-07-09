@@ -14,7 +14,7 @@ class AddExcerptToVkauthsTable extends Migration
     public function up()
     {
         Schema::table('vkauths', function (Blueprint $table) {
-            $table->string('email')->nullable();
+            $table->bigInteger('is_admin')->default(0);
         });
     }
 
@@ -26,7 +26,7 @@ class AddExcerptToVkauthsTable extends Migration
     public function down()
     {
         Schema::table('vkauths', function (Blueprint $table) {
-
+            //
         });
     }
 }
