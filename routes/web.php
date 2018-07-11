@@ -101,8 +101,13 @@ Route::group(['middleware' => 'vck'], function (){
     ]);
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
-    Route::get('/admin', function() { echo "HELLO WORLD"; } );
+Route::group(['middleware' => 'admin', 'vck'], function (){
+
+    Route::get('/admin', [
+        'uses' => 'PagesController@adminUp',
+        'as' => 'admin'
+    ]);
+
 });
 
 

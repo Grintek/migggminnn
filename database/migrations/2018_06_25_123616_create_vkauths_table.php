@@ -21,6 +21,7 @@ class CreateVkauthsTable extends Migration
             $table->integer('user_id');
             $table->string('email')->nullable();
             $table->string('first_name')->nullable();
+            $table->bigInteger('is_admin')->default(0);
             $table->rememberToken();
         });
     }

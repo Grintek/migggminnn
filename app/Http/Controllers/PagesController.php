@@ -97,6 +97,9 @@ class PagesController extends Controller
 
         return $request->all();
     }
+    public function adminUp(){
+        return view('admin');
+    }
 
 
 }
