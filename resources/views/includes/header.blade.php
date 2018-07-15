@@ -1,4 +1,11 @@
 <header>
+    {{--<img class="imgs" src={{ URL::to('/images/movi.png')}}>--}}
+    <div class="movi container">
+
+            <iframe width="960" height="500" src="https://www.youtube.com/embed/73GjdIcU0YI"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    </div>
     <nav class="navbar navbar-default" style="background-color: rgba(0,83,255,0.1); box-shadow: -4px 0px 4px 1px black">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -14,7 +21,7 @@
 
                     <li class="nav-link" style="text-shadow: none"><a href="{{route('logout')}}" style="color: #5e5d5d">Выход</a></li>
                 @else
-                    <li class="nav-link"><a href="{{route('registr')}}">Регистрация</a></li>
+                    <li class="nav-link"><a href="{{route('registr')}}"></a></li>
                 @endif
             </ul>
         <!-- /.navbar-collapse -->
