@@ -1,5 +1,5 @@
 <header>
-    <img class="imgs" src={{ URL::to('/images/movi.png')}}>
+    {{--<img class="imgs" src={{ URL::to('/images/movi.png')}}>--}}
     <div class="movi container">
 
             <iframe width="960" height="500" src="https://www.youtube.com/embed/73GjdIcU0YI"
