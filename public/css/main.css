@@ -55,23 +55,19 @@ body{
     width: 50px;
     border-radius: 50px 50px;
 }
-button{
-    background-color: #0d3625;
-    border-radius: 30px;
-}
 .blocLog{
-    margin-top: 200px;
-    position: relative;
+    margin-top: 140px;
+
+
 }
 .blocLog2{
     margin: 0;
-    position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     padding-bottom: 10px;
     transform: translate(-50%, -50%);
-    background: rgba(78,115,122,1);
+    background: rgba(78,115,122,0.6);
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 0px 20px 10px rgba(78,115,166,0.5);
 }
@@ -94,4 +90,43 @@ button{
     padding-top: 10px;
     background-color: rgba(0,83,255,0.2);
 }
+.movi{
+    margin-top: 60px;
+    margin-bottom: 70px;
+    padding-left: 75px;
+    border-radius: 80px;
+    box-shadow: 0px 0px 100px 20px #2a88bd;
+
+}
+iframe{
+    padding-top: 6px;
+    border: 20px #2ab27b;
+}
+.btnn{
+    background:radial-gradient(circle, #2a88bd 2%, rgba(18,88,186,0.57) 68%);
+    border-radius: 30%;
+    font-size: 60px;
+    border: 30px;
+    color: rgba(217,216,224,0.89);
+
+
+
+}
+.text_up{
+    color: #000;
+    text-shadow: #2a88bd 0px 0px 30px;
+}
+.imgs{
+    margin-left: 50%;
+    margin-right: 50%;
+    position: absolute;
+    height: 625px;
+    width: 1650px;
+
+    right: -825px;
+    top: 0px;
+
+}
+
+
 
