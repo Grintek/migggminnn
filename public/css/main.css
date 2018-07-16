@@ -91,10 +91,7 @@ body{
     background-color: rgba(0,83,255,0.2);
 }
 
-iframe{
-    padding-top: 6px;
-    border: 20px #2ab27b;
-}
+
 .btnn{
     background:radial-gradient(circle, #2a88bd 2%, rgba(18,88,186,0.57) 68%);
     border-radius: 30%;
@@ -114,8 +111,9 @@ iframe{
      margin-bottom: 70px;
      background-color: black;
      overflow: hidden;
-     width: 1020px;
-     padding-left: 30px;
+     width: 960px;
+    height: 501px;
+     padding-left: 0px;
      z-index: 3;
      border-radius: 16px;
      position: relative;
@@ -126,10 +124,10 @@ iframe{
     margin-left: 50%;
     margin-right: 50%;
     position: absolute;
-    height: 621px;
-    width: 1745px;
+    height: 619px;
+    width: 1636px;
     z-index: 2;
-    right: -889px;
+    right: -834px;
     top: 1px;
 
 }
