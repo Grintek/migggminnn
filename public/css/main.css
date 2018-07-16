@@ -130,3 +130,48 @@ iframe{
 
 
 
+iframe{
+    padding-top: 6px;
+    border: 20px #2ab27b;
+}
+.btnn{
+    background:radial-gradient(circle, #2a88bd 2%, rgba(18,88,186,0.57) 68%);
+    border-radius: 30%;
+    font-size: 60px;
+    border: 30px;
+    color: rgba(217,216,224,0.89);
+
+
+
+}
+.text_up{
+    color: #000;
+    text-shadow: #2a88bd 0px 0px 30px;
+}
+.movi{
+     margin-top: 60px;
+     margin-bottom: 70px;
+     background-color: black;
+     overflow: hidden;
+     width: 1020px;
+     padding-left: 30px;
+     z-index: 3;
+     border-radius: 16px;
+     position: relative;
+     /*box-shadow: 0px 0px 100px 20px #2a88bd;*/
+
+ }
+.imgs{
+    margin-left: 50%;
+    margin-right: 50%;
+    position: absolute;
+    height: 621px;
+    width: 1745px;
+    z-index: 2;
+    right: -889px;
+    top: 1px;
+
+}
+
+
+
