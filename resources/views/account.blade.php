@@ -10,6 +10,7 @@
             <header><h3>Your Account</h3></header>
             <form action="{{ route('account.save') }}" method="post" enctype="multipart/form-data">
             <div>
+                <label for="first_name">First Name</label>
                 <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" id="first_name">
             </div>
             <div>
