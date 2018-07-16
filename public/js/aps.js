@@ -41,3 +41,8 @@ $('.like').on('click', function (event) {
             }
         });
 });
+$('.imgs').on('click', function () {
+
+    var a = false;
+    return a;
+});
