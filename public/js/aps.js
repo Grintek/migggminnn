@@ -45,4 +45,8 @@ $('.imgs').on('click', function () {
 
     var a = false;
     return a;
+});$('.imgs').on('click', function () {
+
+    var a = false;
+    return a;
 });
