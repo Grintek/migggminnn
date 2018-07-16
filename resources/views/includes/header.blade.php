@@ -6,7 +6,7 @@
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     </div>
-    <nav class="navbar navbar-default" style="background-color: rgba(0,83,255,0.1); box-shadow: -4px 0px 4px 1px black">
+    <nav class="navbar navbar-default" style="background-color: rgba(0,83,255,0.1); box-shadow: -4px 0px 4px 1px cornflowerblue">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
