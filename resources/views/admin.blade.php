@@ -11,7 +11,7 @@
             <header><h3>Новый стрим</h3></header>
             <form action="{{ route('admin') }}" method="post">
                 <div class="form-group">
-                    <textarea class="form-control" name="url_mov" id="new_mov" rows="5" placeholder="Your post"></textarea>
+                    <input type="url" class="form-control" name="url_mov" id="new_mov">
                 </div>
                 <button type="submit" class="btn btn-primary">создать</button>
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
@@ -19,4 +19,9 @@
         </div>
     </section>
 
+
+    <hr style="color: #2a88bd">
+    <div class="navbar line"></div>
+
+    
 @endsection
