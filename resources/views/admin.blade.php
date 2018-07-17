@@ -19,7 +19,7 @@
         </div>
     </section>
 
-    
+
     <hr style="color: #2a88bd">
     <div class="navbar line"></div>
 
