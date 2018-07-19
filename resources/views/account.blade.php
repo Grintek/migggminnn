@@ -10,12 +10,13 @@
             <header><h3>Your Account</h3></header>
             <form action="{{ route('account.save') }}" method="post" enctype="multipart/form-data">
             <div>
-bb                <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" id="first_name">
+                <header><h3>First name</h3></header>
+                <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" id="first_name">
             </div>
             <div>
                 <label for="image">Image (only .jpg)</label>
                 <input type="file" name="image" class="form-control" id="first_name">
-            </div>     yytcb
+            </div>
             <button type="submit" class="btn btn-primary">Save Account</button>
             <input type="hidden" value="{{ Session::token() }}" name="_token">
             </form>
