@@ -1,12 +1,13 @@
 <header>
-    <img class="imgs" src={{ URL::to('/images/movi.png')}}>
+    {{--<img class="imgs" src={{ URL::to('/images/movi.png')}}>--}}
     <div class="movi container">
 
             <iframe width="960" height="500" src="https://www.youtube.com/embed/73GjdIcU0YI"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     </div>
-    <nav class="navbar navbar-default" style="background-color: rgba(0,83,255,0.1); box-shadow: -4px 0px 4px 1px cornflowerblue">
+    <nav class="navbar navbar-expand-lg" style="background-color: rgba(0,83,255,0.1); box-shadow: -4px 0px 4px 1px cornflowerblue;
+text-shadow: none; margin-left: auto; margin-right: auto">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">

@@ -8,7 +8,7 @@
 
     <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
-            <header><h3>Новый стрим</h3></header>
+            <header><h3>Новый URL стрима</h3></header>
             <form action="{{ route('admin') }}" method="post">
                 <div class="form-group">
                     <input type="url" class="form-control" name="url_mov" id="new_mov">
@@ -23,7 +23,6 @@
     <section class="row new-post">
         <div class="col-lg-6 col-md-offset-3">
             <header><h4>Tut sozdaetsy vash kanal i td i tp</h4></header>
-            <hr>
             <div class="navbar line2"></div>
 
             <form action="{{ route('admin') }}" method="post">
