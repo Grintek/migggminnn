@@ -24,24 +24,12 @@
 
             {{--</form>--}}
            <h2><p class="text_up text-center text-muted">Выбери способ входа</p></h2>
-
-
-
-
-                <form action="{{route('vk')}}">
+                           <form action="{{route('vk')}}">
                     <button type="submit" class="btn btnn">
                         <p style="padding: 0px; margin: 0px">ВК</p>
                     </button>
                     <input type="hidden"  name="_token" value="{{ Session::token()}}">
                 </form>
-
-                <div>
-
-
-
-
-
-            </div>
         </div>
     </div>
 @endsection

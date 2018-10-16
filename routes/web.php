@@ -26,6 +26,11 @@ Route::group(['middleware' => 'vck'], function (){
         return view('welcome');
     })->name('home');
 
+    Route::get('/', [
+       'users' => 'UserController@getNameUser',
+        'as' => '/'
+    ]);
+
     Route::post('/signup', [
         'uses' => 'UserController@postSignUp',
         'as' => 'signup'
