@@ -14,9 +14,13 @@ class PostController extends Controller
 {
     public function getDashboard()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('dashboard', ['posts' => $posts]);
-
+        $user = Auth::user();
+        if(!empty($user->first_name)) {
+            $posts = Post::orderBy('created_at', 'desc')->get();
+            return view('dashboard', ['posts' => $posts]);
+        }else{
+            return view('banerName');
+        }
     }
     public function postCreatePost(Request $request){
 

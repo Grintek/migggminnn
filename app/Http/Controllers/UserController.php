@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -74,7 +75,14 @@ class UserController extends Controller
 
     public function getAccount(){
         if(Auth::user()){
-          return view('account', ['user' => Auth::user()]);
+            return view('account', ['user' => Auth::user()]);
+        }else {
+            return redirect()->route('home');
+        }
+    }
+    public function updateAccount(){
+        if(Auth::user()){
+          return view('accountedit', ['user' => Auth::user()]);
         }else {
             return redirect()->route('home');
         }
@@ -92,11 +100,22 @@ class UserController extends Controller
         if ($file) {
             Storage::disk('local')->put($filename, File::get($file));
         }
-        return redirect()->route('account');
+        return redirect()->route('accountedit');
     }
     public function getUserImage($filename)
     {
         $file = Storage::disk('local')->get($filename);
         return new Response($file, 200);
+    }
+
+    public function saveNameUser(Request $request){
+        $this->validate($request, [
+            'first_name' => 'required|max:120'
+        ]);
+
+        $user = Auth::user();
+        $user->first_name = $request['first_name'];
+        $user->update();
+        return redirect()->route('home');
     }
 }

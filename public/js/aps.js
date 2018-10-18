@@ -43,14 +43,6 @@ $('.like').on('click', function (event) {
 });
 $('.imgs').on('click', function () {
 
-    var a = false;
-    return a;
-});$('.imgs').on('click', function () {
-
-    var a = false;
-    return a;
-});$('.imgs').on('click', function () {
-
-    var a = false;
+    const a = false;
     return a;
 });

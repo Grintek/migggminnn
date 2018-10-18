@@ -26,10 +26,6 @@ Route::group(['middleware' => 'vck'], function (){
         return view('welcome');
     })->name('home');
 
-    Route::get('/', [
-       'users' => 'UserController@getNameUser',
-        'as' => '/'
-    ]);
 
     Route::post('/signup', [
         'uses' => 'UserController@postSignUp',
@@ -54,21 +50,36 @@ Route::group(['middleware' => 'vck'], function (){
         'as' => 'dashboard',
         'middleware' => 'authe'
     ]);
+
+    Route::get('/baner', [
+        'uses' => 'PagesController@getNameUser',
+        'as' => 'baner',
+        'middleware' => 'authe'
+    ]);
+    Route::post('/upbaner', [
+        'uses' => 'UserController@saveNameUser',
+        'as' => 'baner.save',
+    ]);
+
     Route::get('/registr', [
        'uses' => 'UserController@getRegistr',
         'as' => 'registr'
     ]);
     Route::get('/account', [
-       'uses' => 'UserController@getAccount',
+        'uses' => 'UserController@getAccount',
         'as' => 'account'
+    ]);
+    Route::get('/accountedit', [
+       'uses' => 'UserController@updateAccount',
+        'as' => 'accountedit'
     ]);
     Route::post('/updateaccount', [
        'uses' => 'UserController@postSaveAccount',
-        'as' => 'account.save'
+        'as' => 'accountedit.save'
     ]);
     Route::get('/userimage/{filename}',[
         'uses' => 'UserController@getUserImage',
-        'as' => 'account.image'
+        'as' => 'accountedit.image'
     ]);
 
 

@@ -59,9 +59,8 @@ body{
 
 }
 .blocLog2{
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
+
+    margin-left: auto;
     padding-bottom: 10px;
     transform: translate(-50%, -50%);
     background: rgba(78,115,122,0.0);
@@ -174,8 +173,8 @@ body{
 }
 .line2{
     background-color: #868a8d;
-    padding: 1px;
-    padding-left: 1111px !important;
+    padding-top: 1px;
+    padding-left: 100%;
     box-shadow: 0px 0px 10px 3px #233453;
     margin-top: 20px;
 }

@@ -23,7 +23,7 @@
     <section class="row new-post">
         <div class="col-lg-6 col-md-offset-3">
             <header><h4>Tut sozdaetsy vash kanal i td i tp</h4></header>
-            <div class="navbar line2"></div>
+            <div class="line2" style="padding-left: 1111px"></div>
 
             <form action="{{ route('admin') }}" method="post">
                 <header><h3>заголовок канала</h3></header>
