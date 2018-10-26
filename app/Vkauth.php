@@ -20,5 +20,8 @@ class Vkauth extends Model implements Authenticatable
 
         return $this->is_admin;
     }
+    public function channel(){
+        return $this->hasMany('App/Channel');
+    }
 
 }

@@ -101,6 +101,10 @@ class PagesController extends Controller
         return view('admin');
     }
 
+    public function adminCreateChanel(){
+
+    }
+
     public function getNameUser(){
 
         return view('banerName',['name' => Auth::user()]);

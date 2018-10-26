@@ -41,11 +41,9 @@
     background-color: #c8ff00;
     color: green;
 }
-html, body{
 
-}
 body{
-    color: #217b38;
+    color: #007bff;
     background-size: 100%;
     background: linear-gradient(#262626, black 30%) no-repeat fixed;
 }
@@ -55,18 +53,20 @@ body{
     border-radius: 50px 50px;
 }
 .blocLog{
-    margin-top: 140px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
 
 }
 .blocLog2{
-
+    margin-right: auto;
     margin-left: auto;
     padding-bottom: 10px;
-    transform: translate(-50%, -50%);
-    background: rgba(78,115,122,0.0);
-    border: solid 4px #233453;
+    background: rgba(0,83,255,0.1);
+    border: solid 4px rgba(0,83,255,0.1);
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px 0px 20px 10px rgba(78,115,166,0.5);
+    box-shadow: 0px 0px 4px 1px cornflowerblue;
 }
 .blocLog_center{
 
@@ -87,8 +87,19 @@ body{
     padding-top: 10px;
     background-color: rgba(0,83,255,0.2);
 }
+.blocAccount{
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: rgba(2, 46, 131, 0.3);
+    margin-bottom: 10px;
+}
 
-
+.blockInline{
+    display: inline-block;
+}
 
 .btnn{
     background:radial-gradient(circle, #2a88bd 2%, rgba(18,88,186,0.57) 68%);
@@ -113,7 +124,7 @@ body{
     z-index: 3;
     border-radius: 25px;
     position: relative;
-    border: solid 6px #1f72a1;
+    border: solid 2px #1f72a1;
     box-shadow: 0px 0px 59px 0px #1f72a1;
     animation-name: movi_color;
     animation-duration: 15s;
@@ -123,35 +134,35 @@ body{
 @keyframes movi_color {
     10%{
         box-shadow: 0px 0px 59px 0px #3811a1;
-        border: solid 6px #3811a1;
+        border: solid 2px #3811a1;
     }
     20%{
         box-shadow: 0px 0px 59px 0px #239aa1;
-        border: solid 6px #239aa1;
+        border: solid 2px #239aa1;
     }
     30%{box-shadow: 0px 0px 59px 0px #09a10e;
-        border: solid 6px #09a10e;
+        border: solid 2px #09a10e;
     }
     40%{box-shadow: 0px 0px 59px 0px #4b4a3d;
-        border: solid 6px #4b4a3d;
+        border: solid 2px #4b4a3d;
     }
     50%{box-shadow: 0px 0px 59px 0px #e1db00;
-        border: solid 6px #e1db00;
+        border: solid 2px #e1db00;
     }
     60%{box-shadow: 0px 0px 59px 0px #e10019;
-        border: solid 6px #e10019;
+        border: solid 2px #e10019;
     }
     70%{box-shadow: 0px 0px 59px 0px #6f0013;
-        border: solid 6px #6f0013;
+        border: solid 2px #6f0013;
     }
     80%{box-shadow: 0px 0px 59px 0px #900097;
-        border: solid 6px #900097;
+        border: solid 2px #900097;
     }
     90%{box-shadow: 0px 0px 59px 0px #929297;
-        border: solid 6px #929297;
+        border: solid 2px #929297;
     }
     100%{box-shadow: 0px 0px 59px 0px #2d302e;
-        border: solid 6px #2d302e;
+        border: solid 2px #2d302e;
     }
 }
 .imgs{
@@ -163,7 +174,24 @@ body{
     width: auto;
     right: -834px;
     top: 3px;
-
+}
+.img_user{
+    border: 3px solid #7f7f84;
+    border-radius: 7px;
+    height: 300px;
+    width: 300px;
+    max-height: 300px;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 300px;
+    overflow: hidden;
+    vertical-align: middle;
+    padding: 27px;
+}
+.img_user::before{
+    content: "";
+    display: block;
+    padding-bottom: 50%;
 }
 .line{
     background-color: brown;    
@@ -174,7 +202,7 @@ body{
 .line2{
     background-color: #868a8d;
     padding-top: 1px;
-    padding-left: 100%;
+    padding-right: 100%;
     box-shadow: 0px 0px 10px 3px #233453;
     margin-top: 20px;
 }

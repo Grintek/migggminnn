@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="blocLog col-lg-6" style="margin-left: auto">
+<div class="blocLog" style="width: 500px">
     <div class="blocLog2" style="padding: 40px">
         <h5 style="color: #1f72a1">Придумайте себе имя</h5>
         <form action="{{route('baner.save')}}" method="post" enctype="multipart/form-data">
