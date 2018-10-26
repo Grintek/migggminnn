@@ -101,8 +101,8 @@ class PagesController extends Controller
         return view('admin');
     }
 
-    public function adminCreateChanel(){
-
+    public function adminCreateChanel(Request $request){
+        return $request->all();
     }
 
     public function getNameUser(){
