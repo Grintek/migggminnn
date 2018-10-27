@@ -102,6 +102,7 @@ class PagesController extends Controller
     }
 
     public function adminCreateChanel(Request $request){
+
         return $request->all();
     }
 

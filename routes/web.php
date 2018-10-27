@@ -115,6 +115,7 @@ Route::group(['middleware' => 'vck'], function (){
         'uses' => 'PagesController@postVkaTok',
         'as' => 'tok'
     ]);
+
 });
 
 Route::group(['middleware' => 'admin', 'vck'], function (){
@@ -123,7 +124,7 @@ Route::group(['middleware' => 'admin', 'vck'], function (){
         'uses' => 'PagesController@adminUp',
         'as' => 'admin'
     ]);
-    Route::get('/adminchannel', [
+    Route::post('/adminchannel', [
         'uses' => 'PagesController@adminCreateChanel',
         'as' => 'admin.createChanel'
     ]);
