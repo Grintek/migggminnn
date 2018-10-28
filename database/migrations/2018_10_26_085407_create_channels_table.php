@@ -17,6 +17,7 @@ class CreateChannelsTable extends Migration
             $table->increments('id');
             $table->string('caption_chan', 100);
             $table->text('description_chan');
+            $table->string('date_channel');
             $table->timestamps();
             $table->integer('vk_id');
         });

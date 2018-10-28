@@ -8,12 +8,11 @@
 </head>
 <body>
 @include('includes.header')
-<div class="container">
-    @yield('content')
-</div>
-<div class="container-fluid">
-    @yield('contentBrand')
-</div>
+<section>
+@yield('content')
+
+@yield('contentBrand')
+</section>
 
 <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>

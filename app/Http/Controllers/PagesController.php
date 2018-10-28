@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Vkauth;
+use App\Channel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -62,13 +63,13 @@ class PagesController extends Controller
             $r->user_id;
             $r->access_token;
         }
-        //если есть дааный user_id то только обновляю token а если нет то создаю нового пользователя
+        //если есть даный user_id то только обновляю token а если нет то создаю нового пользователя
         if($r->user_id == $token['user_id']) {
             DB::table('vkauths')
                 ->where('user_id', $r->user_id)
                 ->update(
-                    ['access_token' => $token['access_token']],
-                    ['expires_in' => $token['expires_in']]
+                    ['access_token' => $token['access_token'],
+                    'expires_in' => $token['expires_in']]
                     );
         }else{
             $vkaut->access_token = $access_token;
@@ -102,8 +103,32 @@ class PagesController extends Controller
     }
 
     public function adminCreateChanel(Request $request){
-
-        return $request->all();
+        $channel = new Channel();
+        $vkauth = new Vkauth();
+        $id = Auth::user()->id;
+            $channel->caption_chan = $request['caption_chan'];
+            $channel->description_chan = $request['description_chan'];
+            $channel->date_channel = $request['date_channel'];
+            $channel->vk_id = $id;
+        $up_channel = DB::select('select vk_id from channels WHERE vk_id = :id',['id' => $id]);
+        $save_chanel = DB::select('select id from channels');
+        foreach ($up_channel as $key){
+        }
+            if($key->vk_id != $id) {
+                $channel->save();
+            }else{
+                DB::table('channels')
+                    ->where('vk_id', $key->vk_id)
+                    ->update(
+                        [
+                            'description_chan' => $request['description_chan'],
+                            'caption_chan' => $request['caption_chan'],
+                            'date_channel' => $request['date_channel']
+                        ]
+                    );
+            }
+        $chann = DB::select('select * from channels');
+            return view('dashboard')->with('chann', $chann);
     }
 
     public function getNameUser(){
