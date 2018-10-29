@@ -6,6 +6,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,8 +17,9 @@ class PostController extends Controller
     {
         $user = Auth::user();
         if(!empty($user->first_name)) {
+            $channel = DB::select('select * from channels');
             $posts = Post::orderBy('created_at', 'desc')->get();
-            return view('dashboard', ['posts' => $posts]);
+            return view('dashboard', ['posts' => $posts, 'channel' => $channel]);
         }else{
             return view('banerName');
         }

@@ -1,14 +1,21 @@
 @extends('layouts.master')
 
 @section('content')
-    <section>
-        wasrfwsaerf
+    <section class="container_cont">
+        <div>
+            @foreach($channel as $ch)
+                <div style="background: url({{ route('accountedit.image',
+                ['filename' => $ch->caption_chan . '-' . $ch->vk_id . '.jpg']) }}) 50% 50%; background-size: cover;" class="container_channel">
+                    {{$ch->id}}
+                </div>
+            @endforeach
+        </div>
     </section>
 @endsection
 
 @section('contentBrand')
-    <section>
-        <div class="col-2 blocChat_fon">
+    <section class="container_news">
+        <div class="blocChat_fon">
             @foreach($posts as $post)
                 <article class="blocChat" data-postid="{{ $post->id }}">
                     <div class="info">

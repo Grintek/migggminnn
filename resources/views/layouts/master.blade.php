@@ -8,11 +8,10 @@
 </head>
 <body>
 @include('includes.header')
-<section>
+
 @yield('content')
 
 @yield('contentBrand')
-</section>
 
 <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>

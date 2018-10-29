@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -99,24 +101,38 @@ class PagesController extends Controller
         return $request->all();
     }
     public function adminUp(){
-        return view('admin');
+
+        $chan = DB::select('select * from channels WHERE vk_id = '.Auth::user()->id);
+        foreach ($chan as $cn){
+        }
+
+        return view('admin',['chan' => $cn]);
     }
 
     public function adminCreateChanel(Request $request){
+        $this->validate($request,[
+            'caption_chan' => 'required|min:1',
+            'description_chan' => 'required|min:1'
+        ]);
         $channel = new Channel();
-        $vkauth = new Vkauth();
         $id = Auth::user()->id;
             $channel->caption_chan = $request['caption_chan'];
             $channel->description_chan = $request['description_chan'];
             $channel->date_channel = $request['date_channel'];
             $channel->vk_id = $id;
+
+        $file = $request->file('image');
+        $filename = $request['caption_chan'] . '-' . $id . '.jpg';
+        if ($file) {
+            Storage::disk('local')->put($filename, File::get($file));
+        }
+
         $up_channel = DB::select('select vk_id from channels WHERE vk_id = :id',['id' => $id]);
-        $save_chanel = DB::select('select id from channels');
         foreach ($up_channel as $key){
         }
-            if($key->vk_id != $id) {
+            if($up_channel == null) {
                 $channel->save();
-            }else{
+            }else if($key->vk_id == $id){
                 DB::table('channels')
                     ->where('vk_id', $key->vk_id)
                     ->update(
@@ -127,8 +143,7 @@ class PagesController extends Controller
                         ]
                     );
             }
-        $chann = DB::select('select * from channels');
-            return view('dashboard')->with('chann', $chann);
+            return redirect()->route('dashboard');
     }
 
     public function getNameUser(){

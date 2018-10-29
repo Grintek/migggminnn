@@ -27,8 +27,12 @@
 
             <form action="{{ route('admin.createChanel') }}" method="post">
                 <header><h3>заголовок канала</h3></header>
-                <input type="text" class="form-control" name="caption_chan" id="first_name">
+                <input type="text" class="form-control" name="caption_chan" id="first_name" value="{{$chan->caption_chan}}">
                 <hr>
+                <div>
+                    <label for="image">Изображение канала (only .jpg)</label>
+                    <input type="file" name="image" class="form-control" id="first_name">
+                </div>
                 <div class="form-group row">
                     <label for="example-date-input" class="col-2 col-form-label">Дата</label>
                     <div class="col-10">
@@ -37,7 +41,7 @@
                 </div>
                 <hr>
                 <header><h3>Описание</h3></header>
-                <textarea class="form-control" style="padding-bottom: 200px;" name="description_chan" id="first_name"></textarea>
+                <textarea class="form-control" style="padding-bottom: 200px;" value="{{$chan->description_chan}}" name="description_chan" id="first_name"></textarea>
                 <button type="submit" class="btn btn-primary">Save Account</button>
                 <hr>
                 <input type="hidden" value="{{ Session::token() }}" name="_token">

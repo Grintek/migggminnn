@@ -84,7 +84,7 @@ body{
     border-radius: 10px;
 }
 .blocChat_fon{
-    padding-top: 10px;
+    padding: 10px;
     background-color: rgba(0,83,255,0.2);
 }
 .blocAccount{
@@ -207,4 +207,24 @@ body{
     margin-top: 20px;
 }
 
+.container_cont{
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 80%;
+    float: left;
+    background-color: #0d3625;
+}
+.container_news{
+    width: 20%;
+    float: right;
+}
+.container_channel{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    min-height: 100px;
+    min-width: 100px;
+    background-color: #2d302e;
+    border: 3px solid #6f0013;
+}
 
