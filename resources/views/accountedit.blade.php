@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <div class="blocLog2" style="margin-top: 20px; padding: 10px;">
     <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
             <header><h3>Your Account</h3></header>
@@ -23,11 +24,10 @@
         </div>
     </section>
     @if (Storage::disk('local')->has($user->first_name . '-' . $user->id . '.jpg'))
-        <section class="row new-post">
-            <div class="col-md-6 col-md-offset-3">
-                <img src="{{ route('accountedit.image', ['filename' => $user->first_name . '-' . $user->id . '.jpg']) }}" alt="" class="img-responsive">
+            <div style="margin-bottom: 10px">
+                <div style="background: url({{ route('accountedit.image',
+                ['filename' => $user->first_name . '-' . $user->id . '.jpg']) }}) 50% 50%; background-size: cover;" class="img_user"></div>
             </div>
-        </section>
     @endif
     @include('includes.message-block')
             <section class="row new-post">
@@ -64,4 +64,5 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    </div>
 @endsection

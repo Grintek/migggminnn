@@ -7,6 +7,7 @@ use App\Vkauth;
 use App\Channel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -111,28 +112,30 @@ class PagesController extends Controller
 
     public function adminCreateChanel(Request $request){
         $this->validate($request,[
-            'caption_chan' => 'required|min:1',
-            'description_chan' => 'required|min:1'
+            'caption_chan' => 'required|min:1'
         ]);
         $channel = new Channel();
-        $id = Auth::user()->id;
+        $user = Auth::user();
             $channel->caption_chan = $request['caption_chan'];
             $channel->description_chan = $request['description_chan'];
             $channel->date_channel = $request['date_channel'];
-            $channel->vk_id = $id;
+            $channel->vk_id = $user->id;
 
-        $file = $request->file('image');
-        $filename = $request['caption_chan'] . '-' . $id . '.jpg';
+        $file = $request->file('image_channel');
+        $filename = $request['caption_chan'] . '-' . $user->id . '.jpg';
         if ($file) {
             Storage::disk('local')->put($filename, File::get($file));
         }
 
-        $up_channel = DB::select('select vk_id from channels WHERE vk_id = :id',['id' => $id]);
+        $up_channel = DB::select('select * from channels WHERE vk_id = :id',['id' => $user->id]);
         foreach ($up_channel as $key){
+        }
+        if(empty($request['description_chan'])){
+            $request['description_chan'] = $key->description_chan;
         }
             if($up_channel == null) {
                 $channel->save();
-            }else if($key->vk_id == $id){
+            }else if($key->vk_id == $user->id){
                 DB::table('channels')
                     ->where('vk_id', $key->vk_id)
                     ->update(
@@ -143,7 +146,11 @@ class PagesController extends Controller
                         ]
                     );
             }
-            return redirect()->route('dashboard');
+            return redirect()->route('admin');
+    }
+    public function getChannelImage($filename){
+        $file = Storage::disk('local')->get($filename);
+        return new Response($file, 200);
     }
 
     public function getNameUser(){

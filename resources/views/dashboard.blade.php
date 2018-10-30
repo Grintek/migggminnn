@@ -6,7 +6,6 @@
             @foreach($channel as $ch)
                 <div style="background: url({{ route('accountedit.image',
                 ['filename' => $ch->caption_chan . '-' . $ch->vk_id . '.jpg']) }}) 50% 50%; background-size: cover;" class="container_channel">
-                    {{$ch->id}}
                 </div>
             @endforeach
         </div>
