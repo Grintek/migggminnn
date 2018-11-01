@@ -25,13 +25,13 @@
             <header><h2>Создание своего канала</h2></header>
             <div class="line2" style="padding-left: 100%"></div>
 
-            <form action="{{ route('admin.createChanel') }}" method="post">
+            <form action="{{ route('admin.createChanel') }}" method="post" enctype="multipart/form-data">
                 <header><h3>заголовок канала</h3></header>
                 <input type="text" class="form-control" name="caption_chan" id="first_name" value="{{$chan->caption_chan}}">
                 <hr>
                 <div>
                     <label for="image_channel">Изображение канала (only .jpg)</label>
-                    <input type="file" name="image_channel" class="form-control" id="caption_chan">
+                    <input type="file" name="image_channel" class="form-control" id="first_name">
                 </div>
                 <hr>
                 <div class="form-group row">
@@ -43,16 +43,19 @@
                 <hr>
                 <header><h3>Описание</h3></header>
                 <textarea class="form-control" style="padding-bottom: 200px;" name="description_chan" id="first_name"></textarea>
-                <button type="submit" class="btn btn-primary">Сохранить свой канал</button>
                 <hr>
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
+                <button type="submit" class="btn btn-primary">Сохранить свой канал</button>
             </form>
+            <hr>
+            <h3>Тут аватар канала</h3>
             @if (Storage::disk('local')->has($chan->caption_chan . '-' . $chan->vk_id . '.jpg'))
                 <div style="margin-bottom: 10px">
                     <div style="background: url({{ route('accountedit.image',
                 ['filename' => $chan->caption_chan . '-' . $chan->vk_id . '.jpg']) }}) 50% 50%; background-size: cover;" class="img_user"></div>
                 </div>
                 @else
+
                 <div>
                     <H1>Фото не загруженно</H1>
                 </div>

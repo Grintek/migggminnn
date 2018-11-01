@@ -121,10 +121,10 @@ class PagesController extends Controller
             $channel->date_channel = $request['date_channel'];
             $channel->vk_id = $user->id;
 
-        $file = $request->file('image_channel');
+        $files = $request->file('image_channel');
         $filename = $request['caption_chan'] . '-' . $user->id . '.jpg';
-        if ($file) {
-            Storage::disk('local')->put($filename, File::get($file));
+        if ($files) {
+            Storage::disk('local')->put($filename, File::get($files));
         }
 
         $up_channel = DB::select('select * from channels WHERE vk_id = :id',['id' => $user->id]);
@@ -147,10 +147,6 @@ class PagesController extends Controller
                     );
             }
             return redirect()->route('admin');
-    }
-    public function getChannelImage($filename){
-        $file = Storage::disk('local')->get($filename);
-        return new Response($file, 200);
     }
 
     public function getNameUser(){

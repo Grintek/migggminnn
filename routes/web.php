@@ -81,10 +81,7 @@ Route::group(['middleware' => 'vck'], function (){
         'uses' => 'UserController@getUserImage',
         'as' => 'accountedit.image'
     ]);
-    Route::get('/channelimage/{filename}',[
-        'uses' => 'PagesController@getChannelImage',
-        'as' => 'channel.image'
-    ]);
+
 
 
     Route::post('/createpost', [
