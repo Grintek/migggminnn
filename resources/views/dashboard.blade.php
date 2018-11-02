@@ -4,9 +4,9 @@
     <section class="container_cont">
         <div>
             @foreach($channel as $ch)
-                <div style="background: url({{ route('accountedit.image',
+                <button onclick="window.location='{{route('channel.vk.id',[$ch->vk_id])}}'" style="background: url({{ route('accountedit.image',
                 ['filename' => $ch->caption_chan . '-' . $ch->vk_id . '.jpg']) }}) 50% 50%; background-size: cover;" class="container_channel">
-                </div>
+                </button>
             @endforeach
         </div>
     </section>

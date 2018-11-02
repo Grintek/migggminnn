@@ -117,6 +117,12 @@ Route::group(['middleware' => 'vck'], function (){
         'as' => 'tok'
     ]);
 
+    Route::get('/channel/{vk_id}',
+    [
+       'uses' => 'PagesController@channelId',
+        'as' => 'channel.vk.id'
+    ]);
+
 });
 
 Route::group(['middleware' => 'admin', 'vck'], function (){

@@ -153,4 +153,13 @@ class PagesController extends Controller
 
         return view('banerName',['name' => Auth::user()]);
     }
+
+    public function channelId($id){
+        if(Auth::user()){
+            return view('channel.channel');
+        }else{
+           return redirect()->route('home');
+        }
+
+    }
 }
