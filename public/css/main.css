@@ -212,7 +212,7 @@ body{
     padding-left: 10px;
     width: 80%;
     float: left;
-    background-color: #0d3625;
+    margin-top: 35px;
 }
 .container_news{
     width: 20%;
@@ -220,11 +220,55 @@ body{
 }
 .container_channel{
     display: inline-block;
-    height: 100px;
-    width: 100px;
+    height: 350px;
+    width: 350px;
     min-height: 100px;
     min-width: 100px;
     background-color: #2d302e;
-    border: 3px solid #6f0013;
+    border: 0 solid;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px 2px #09a10e, inset 0px 0px 9px 2px #09a10e;
+}
+.channel_player{
+    border: solid 2px #1f72a1;
+    box-shadow: 0px 0px 59px 0px #1f72a1;
+    animation-name: channel_anim;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes channel_anim {
+    10%{
+        box-shadow: 0px 0px 59px 0px #3811a1;
+        border: solid 2px #3811a1;
+    }
+    20%{
+        box-shadow: 0px 0px 59px 0px #239aa1;
+        border: solid 2px #239aa1;
+    }
+    30%{box-shadow: 0px 0px 59px 0px #09a10e;
+        border: solid 2px #09a10e;
+    }
+    40%{box-shadow: 0px 0px 59px 0px #4b4a3d;
+        border: solid 2px #4b4a3d;
+    }
+    50%{box-shadow: 0px 0px 59px 0px #e1db00;
+        border: solid 2px #e1db00;
+    }
+    60%{box-shadow: 0px 0px 59px 0px #e10019;
+        border: solid 2px #e10019;
+    }
+    70%{box-shadow: 0px 0px 59px 0px #6f0013;
+        border: solid 2px #6f0013;
+    }
+    80%{box-shadow: 0px 0px 59px 0px #900097;
+        border: solid 2px #900097;
+    }
+    90%{box-shadow: 0px 0px 59px 0px #929297;
+        border: solid 2px #929297;
+    }
+    100%{box-shadow: 0px 0px 59px 0px #2d302e;
+        border: solid 2px #2d302e;
+    }
 }
 

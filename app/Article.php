@@ -1,6 +1,7 @@
 <?php
 
-namespace App;
+namespace App;// TODO поменять namespase-ы
+
 
 use Illuminate\Database\Eloquent\Model;
 

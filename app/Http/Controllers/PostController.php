@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Like;
@@ -16,15 +17,17 @@ class PostController extends Controller
     public function getDashboard()
     {
         $user = Auth::user();
-        if(!empty($user->first_name)) {
+        if (!empty($user->first_name)) {
             $channel = DB::select('select * from channels');
             $posts = Post::orderBy('created_at', 'desc')->get();
             return view('dashboard', ['posts' => $posts, 'channel' => $channel]);
-        }else{
+        } else {
             return view('banerName');
         }
     }
-    public function postCreatePost(Request $request){
+
+    public function postCreatePost(Request $request)
+    {
 
         $this->validate($request, [
             'body' => 'required|max:1000'
@@ -32,7 +35,7 @@ class PostController extends Controller
         $post = new Post();
         $post->body = $request['body'];
         $message = 'There was an error';
-        if ($request->user()->posts()->save($post)){
+        if ($request->user()->posts()->save($post)) {
             $message = 'Сообщение успешно создано';
         }
         return redirect()->route('dashboard')->with(['message' => $message]);
@@ -41,25 +44,27 @@ class PostController extends Controller
     public function getDeletePost($post_id)
     {
         $post = Post::where('id', $post_id)->first();
-        if(Auth::user() != $post->user){
+        if (Auth::user() != $post->user) {
             return redirect()->back();
         }
         $post->delete();
         return redirect()->route('dashboard')->with(['message' => 'Сообщение удалено']);
     }
 
-    public function postEditPost(Request $request){
+    public function postEditPost(Request $request)
+    {
         $this->validate($request, [
             'body' => 'required'
         ]);
         $post = Post::find($request['postId']);
-        if(Auth::user() != $post->user){
+        if (Auth::user() != $post->user) {
             return redirect()->back();
         }
         $post->body = $request['body'];
         $post->update();
         return response()->json(['new_body' => $post->body], 200);
     }
+
     public function postLikePost(Request $request)
     {
         $post_id = $request['postId'];
@@ -74,7 +79,7 @@ class PostController extends Controller
         if ($like) {
             $already_like = $like->like;
             $update = true;
-            if ($already_like == $is_like){
+            if ($already_like === $is_like) {
                 $like->delete();
                 return null;
             }
@@ -84,9 +89,9 @@ class PostController extends Controller
         $like->like = $is_like;
         $like->user_id = $user->id;
         $like->post_id = $post->id;
-        if ($update){
+        if ($update) {
             $like->update();
-        }else {
+        } else {
             $like->save();
         }
         return null;

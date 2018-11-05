@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 
-
 class PagesController extends Controller
 {
     public function about()
@@ -28,98 +27,93 @@ class PagesController extends Controller
 
     public function postVkaut(Request $request)
     {
-
         $code = $request->input('code');
 
         $request_token = [
 
             'client_id' => '6607722',
-            'client_secret' => 'PaWvqbzE7qeKtfaijboK',
+            'client_secret' => env('CLIENT_SECRET', 'PaWvqbzE7qeKtfaijboK'),
             'redirect_uri' => 'http://127.0.0.1:8000/vkaut',
             'code' => $code
         ];
-        $sylka_token = 'https://oauth.vk.com/access_token'.'?'. http_build_query($request_token);
-        $token = json_decode(file_get_contents($sylka_token), true);
-
+        $linkToken = 'https://oauth.vk.com/access_token' . '?' . http_build_query($request_token);
+        $token = json_decode(file_get_contents($linkToken), true);
 
 
         $vkaut = new Vkauth();
-        $access_token = $token['access_token'];
-        $expires_in = $token['expires_in'];
-        $user_id = $token['user_id'];
-        if(!empty($token['email'])){
+        $accessToken = $token['access_token'];
+        $expiresIn = $token['expires_in'];
+        $userId = $token['user_id'];
+        if (!empty($token['email'])) {
             $email = $token['email'];
-        }else{
-            $token['email'] = '@';
-            $email = $token['email'];
+        } else {
+            $email = '@';
         }
-        $res = DB::select('select * from vkauths where user_id = '.$token['user_id']);
-        if($res == null){
-            $vkaut->access_token = $access_token;
-            $vkaut->expires_in = $expires_in;
-            $vkaut->user_id = $user_id;
+        $res = DB::select('select * from vkauths where user_id = ' . $token['user_id']);
+        if ($res == null) {
+            $vkaut->access_token = $accessToken;
+            $vkaut->expires_in = $expiresIn;
+            $vkaut->user_id = $userId;
             $vkaut->email = $email;
             $vkaut->save();
-            $res = DB::select('select * from vkauths where user_id = '.$token['user_id']);
+            $res = DB::select('select * from vkauths where user_id = ' . $token['user_id']);
         }
-        foreach ($res as $r){
+        foreach ($res as $r) {
             $r->user_id;
             $r->access_token;
         }
         //если есть даный user_id то только обновляю token а если нет то создаю нового пользователя
-        if($r->user_id == $token['user_id']) {
+        if ($r->user_id === $token['user_id']) {
             DB::table('vkauths')
                 ->where('user_id', $r->user_id)
                 ->update(
                     ['access_token' => $token['access_token'],
-                    'expires_in' => $token['expires_in']]
-                    );
-        }else{
-            $vkaut->access_token = $access_token;
-            $vkaut->expires_in = $expires_in;
-            $vkaut->user_id = $user_id;
+                        'expires_in' => $token['expires_in']]
+                );
+        } else {
+            $vkaut->access_token = $accessToken;
+            $vkaut->expires_in = $expiresIn;
+            $vkaut->user_id = $userId;
             $vkaut->email = $email;
             $vkaut->save();
         }
 
-        $results = DB::select('select id from vkauths where user_id = '.$token['user_id']);
-
-
-        foreach ($res as $sir){
+        foreach ($res as $sir) {
             $sir->id;
         }
-
         Auth::loginUsingId($sir->id);
-
-
         return redirect()->route('dashboard');
-
     }
-    public function postVkaTok(Request $request){
+
+    public function postVkaTok(Request $request)
+    {
 //        $pad = $this->postVkaut();
 //        $request->$pad;
 
         return $request->all();
     }
-    public function adminUp(){
 
-        $chan = DB::select('select * from channels WHERE vk_id = '.Auth::user()->id);
-        foreach ($chan as $cn){
+    public function adminUp()
+    {
+
+        $chan = DB::select('select * from channels WHERE vk_id = ' . Auth::user()->id);
+        foreach ($chan as $cn) {
         }
 
-        return view('admin',['chan' => $cn]);
+        return view('admin', ['chan' => $cn]);
     }
 
-    public function adminCreateChanel(Request $request){
-        $this->validate($request,[
+    public function adminCreateChanel(Request $request)
+    {
+        $this->validate($request, [
             'caption_chan' => 'required|min:1'
         ]);
         $channel = new Channel();
         $user = Auth::user();
-            $channel->caption_chan = $request['caption_chan'];
-            $channel->description_chan = $request['description_chan'];
-            $channel->date_channel = $request['date_channel'];
-            $channel->vk_id = $user->id;
+        $channel->caption_chan = $request['caption_chan'];
+        $channel->description_chan = $request['description_chan'];
+        $channel->date_channel = $request['date_channel'];
+        $channel->vk_id = $user->id;
 
         $files = $request->file('image_channel');
         $filename = $request['caption_chan'] . '-' . $user->id . '.jpg';
@@ -127,38 +121,40 @@ class PagesController extends Controller
             Storage::disk('local')->put($filename, File::get($files));
         }
 
-        $up_channel = DB::select('select * from channels WHERE vk_id = :id',['id' => $user->id]);
-        foreach ($up_channel as $key){
+        $up_channel = DB::select('select * from channels WHERE vk_id = :id', ['id' => $user->id]);
+        foreach ($up_channel as $key) {
         }
-        if(empty($request['description_chan'])){
+        if (empty($request['description_chan'])) {
             $request['description_chan'] = $key->description_chan;
         }
-            if($up_channel == null) {
-                $channel->save();
-            }else if($key->vk_id == $user->id){
-                DB::table('channels')
-                    ->where('vk_id', $key->vk_id)
-                    ->update(
-                        [
-                            'description_chan' => $request['description_chan'],
-                            'caption_chan' => $request['caption_chan'],
-                            'date_channel' => $request['date_channel']
-                        ]
-                    );
-            }
-            return redirect()->route('admin');
+        if ($up_channel == null) {
+            $channel->save();
+        } else if ($key->vk_id == $user->id) {
+            DB::table('channels')
+                ->where('vk_id', $key->vk_id)
+                ->update(
+                    [
+                        'description_chan' => $request['description_chan'],
+                        'caption_chan' => $request['caption_chan'],
+                        'date_channel' => $request['date_channel']
+                    ]
+                );
+        }
+        return redirect()->route('admin');
     }
 
-    public function getNameUser(){
+    public function getNameUser()
+    {
 
-        return view('banerName',['name' => Auth::user()]);
+        return view('banerName', ['name' => Auth::user()]);
     }
 
-    public function channelId($id){
-        if(Auth::user()){
+    public function channelId($id)
+    {
+        if (Auth::user()) {
             return view('channel.channel');
-        }else{
-           return redirect()->route('home');
+        } else {
+            return redirect()->route('home');
         }
 
     }
