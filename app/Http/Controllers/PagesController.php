@@ -153,8 +153,12 @@ class PagesController extends Controller
     {
         if (Auth::user()) {
             $channel = DB::select('select * from channels WHERE vk_id = '.$id);
+            foreach ($channel as $chann){
+            }
             $user = DB::select('select first_name from vkauths WHERE id = '.$id);
-            return view('channel.channel')->with(['user' => $user, 'channel' => $channel]);
+            foreach ($user as $use){
+            }
+            return view('channel.channel')->with(['user' => $use, 'channel' => $chann]);
         } else {
             return redirect()->route('home');
         }
