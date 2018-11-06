@@ -2,7 +2,7 @@
     {{--<img class="imgs" src={{ URL::to('/images/movi.png')}}>--}}
     <div class="movi container">
 
-            <iframe width="960" height="500" src="https://www.youtube.com/embed/73GjdIcU0YI"
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/73GjdIcU0YI"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     </div>

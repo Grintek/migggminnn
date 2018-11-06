@@ -2,7 +2,9 @@
 
 @section('content')
     <div style="width: 60%; float: left;">
-        <iframe class="channel_player" src="https://www.youtube.com/embed/73GjdIcU0YI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="channel_player">
+            <iframe width="940"  height="500"  src="https://www.youtube.com/embed/73GjdIcU0YI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
     </div>
 @endsection
 
