@@ -9,7 +9,7 @@
     <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
             <header><h3>Новый URL стрима</h3></header>
-            <form action="{{ route('admin') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.createUrl') }}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="url" class="form-control" name="url_mov" id="new_mov">
                 </div>

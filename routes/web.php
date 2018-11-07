@@ -135,6 +135,10 @@ Route::group(['middleware' => 'admin', 'vck'], function (){
         'uses' => 'PagesController@adminCreateChanel',
         'as' => 'admin.createChanel'
     ]);
+    Route::post('/adminurlchannel',[
+       'uses' => 'PagesController@adminCreateUrl',
+        'as' => 'admin.createUrl'
+    ]);
 
 });
 

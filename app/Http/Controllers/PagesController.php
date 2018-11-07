@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Vkauth;
 use App\Channel;
+use APP\Url_mov;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
@@ -103,6 +104,9 @@ class PagesController extends Controller
         return view('admin', ['chan' => $cn]);
     }
 
+    /**
+     * создание или обновление канала
+     */
     public function adminCreateChanel(Request $request)
     {
         $this->validate($request, [
@@ -140,6 +144,22 @@ class PagesController extends Controller
                     ]
                 );
         }
+        return redirect()->route('admin');
+    }
+
+    /**
+     * запись нового видео
+     */
+    public function adminCreateUrl(Request $request){
+        $this->validate($request,[
+           'url_mov' => 'required|min:5'
+        ]);
+
+        $user = Auth::user();
+        $url = new Url_mov();
+        $url->url_mov = $request['url_mov'];
+        $url->channel_id = $request[$user->id];
+        $url->save();
         return redirect()->route('admin');
     }
 
