@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Vkauth;
 use App\Channel;
-use APP\Url_mov;
+use App\Url_mov;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
@@ -158,7 +158,7 @@ class PagesController extends Controller
         $user = Auth::user();
         $url = new Url_mov();
         $url->url_mov = $request['url_mov'];
-        $url->channel_id = $request[$user->id];
+        $url->channel_id = $user->id;
         $url->save();
         return redirect()->route('admin');
     }

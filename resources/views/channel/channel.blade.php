@@ -12,7 +12,6 @@
         <div class="blocLog2" style="width: 90%; margin-top: 30px; padding: 10px; height: 100%">
             <p>{{$channel->description_chan}}</p>
         </div>
-
     </div>
 @endsection
 

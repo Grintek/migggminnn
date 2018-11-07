@@ -23,5 +23,8 @@ class Vkauth extends Model implements Authenticatable
     public function channel(){
         return $this->hasMany('App/Channel');
     }
+    public function url_mov(){
+        return $this->hasMany('App/Url_mov');
+    }
 
 }

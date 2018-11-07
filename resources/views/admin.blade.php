@@ -11,7 +11,7 @@
             <header><h3>Новый URL стрима</h3></header>
             <form action="{{ route('admin.createUrl') }}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="url" class="form-control" name="url_mov" id="new_mov">
+                    <input type="text" class="form-control" name="url_mov" id="new_mov">
                 </div>
                 <button type="submit" class="btn btn-primary">создать</button>
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
