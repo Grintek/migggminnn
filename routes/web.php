@@ -122,6 +122,10 @@ Route::group(['middleware' => 'vck'], function (){
        'uses' => 'PagesController@channelId',
         'as' => 'channel.vk.id'
     ]);
+    Route::get('/channelonof',[
+        'uses' => 'PagesController@channelOnOf',
+        'as' => 'channel.on.of'
+    ]);
 
 });
 

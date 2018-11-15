@@ -41,8 +41,26 @@ $('.like').on('click', function (event) {
             }
         });
 });
-$('.imgs').on('click', function () {
 
-    const a = false;
-    return a;
+/**
+ * меняем при нажатие стиль окна канала на работает или не работает
+ */
+$('#btnChannel').on('click', function(){
+
+       const url = document.location.href;
+       let idUrl = url.slice(-1);
+       $.ajax({
+           type: "GET",
+           url: '/channelonof',
+           success: function(data) {
+               if (data === '0') {
+                   $('#btnChannel').css({"background": "radial-gradient(red 20%, #0000004a 114%)"});
+                   $('#btnChannelSwitch').animate({marginLeft: '52px'}, 1000);
+
+               }
+           }
+       });
+
+
+    $(`#channel-`+ idUrl).toggleClass("container_channel_play").toggleClass("container_channel");
 });

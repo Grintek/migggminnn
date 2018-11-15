@@ -5,6 +5,13 @@
         <div class="channel_player">
             <iframe width="940"  height="500"  src="https://www.youtube.com/embed/73GjdIcU0YI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
+        <hr>
+        @if($user->id === $channel->vk_id)
+        <div id="btnChannel" class="btn_channel">
+            <div id="btnChannelSwitch" class="btn_channel_switch"></div>
+        </div>
+        <hr>
+        @endif
         <div class="blocLog2" style="width: 90%; margin-top: 30px; padding: 10px; height: 100%">
             <h5 style="display: inline">канал: {{$channel->caption_chan}}</h5>
             <h5 style="display: inline; float: right">{{$channel->date_channel}}</h5>

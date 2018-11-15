@@ -175,12 +175,28 @@ class PagesController extends Controller
             $channel = DB::select('select * from channels WHERE vk_id = '.$id);
             foreach ($channel as $chann){
             }
-            $user = DB::select('select first_name from vkauths WHERE id = '.$id);
+            $user = DB::select('select * from vkauths WHERE id = '.$id);
             foreach ($user as $use){
             }
             return view('channel.channel')->with(['user' => $use, 'channel' => $chann]);
         } else {
             return redirect()->route('home');
+        }
+
+    }
+
+    public function channelOnOf()
+    {
+        $user = Auth::user();
+
+        $channel = DB::select('select * from channels WHERE vk_id = '.$user->id);
+        foreach ($channel as $chann){
+        }
+        if($chann->offOn_channel === 0){
+
+            return $_GET['switch'] = 0;
+        }else{
+            return $_GET['switch'] = 1;
         }
 
     }
