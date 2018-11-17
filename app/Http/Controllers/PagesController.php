@@ -185,6 +185,9 @@ class PagesController extends Controller
 
     }
 
+    /**
+     * отвечаем на ajax запрос(включена или выключена бегунок)
+     */
     public function channelOnOf()
     {
         $user = Auth::user();
@@ -193,11 +196,34 @@ class PagesController extends Controller
         foreach ($channel as $chann){
         }
         if($chann->offOn_channel === 0){
-
             return $_GET['switch'] = 0;
         }else{
             return $_GET['switch'] = 1;
         }
+    }
 
+    /**
+     * записываем в бд положение бегунка
+     */
+    public function channelswitch()
+    {
+        $user = Auth::user();
+
+        $channel = DB::select('select * from channels WHERE vk_id = ' . $user->id);
+        foreach ($channel as $chann) {
+        }
+        if ($chann->offOn_channel == '0') {
+            DB::table('channels')
+                ->where('vk_id', $user->id)
+                ->update(['offOn_channel' => 1]);
+            return $_GET['switch'] = 1;
+
+        } elseif ($chann->offOn_channel == '1') {
+
+            DB::table('channels')
+                ->where('vk_id', $user->id)
+                ->update(['offOn_channel' => 0]);
+            return $_GET['switch'] = 0;
+        }
     }
 }

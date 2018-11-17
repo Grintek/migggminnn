@@ -126,6 +126,10 @@ Route::group(['middleware' => 'vck'], function (){
         'uses' => 'PagesController@channelOnOf',
         'as' => 'channel.on.of'
     ]);
+    Route::get('/channelswitch',[
+        'uses' => 'PagesController@channelswitch',
+        'as' => 'channelswitch.on.of'
+    ]);
 
 });
 

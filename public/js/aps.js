@@ -43,24 +43,40 @@ $('.like').on('click', function (event) {
 });
 
 /**
- * меняем при нажатие стиль окна канала на работает или не работает
+ * меняем при нажатие стиль окна канала и переключатель на работает или не работает
  */
-$('#btnChannel').on('click', function(){
+const url = document.location.href;
+let idUrl = url.slice(-1);
+/**
+ * ставим бегунок по записи в бд
+ */
+$.ajax({
+    type: "GET",
+    url: '/channelonof',
+    success: function(data) {
 
-       const url = document.location.href;
-       let idUrl = url.slice(-1);
+        if (data === '1') {
+            $('#btnChannel').css({"background": 'radial-gradient(red 20%, #0000004a 114%)'});
+            $('#btnChannelSwitch').css({"margin-left": '52px'});
+
+        }
+    }
+});
+$('#btnChannel').on('click', function(){
        $.ajax({
            type: "GET",
-           url: '/channelonof',
+           url: '/channelswitch',
            success: function(data) {
-               if (data === '0') {
-                   $('#btnChannel').css({"background": "radial-gradient(red 20%, #0000004a 114%)"});
+               if (data === '1') {
+                   $('#btnChannel').css({"background": 'radial-gradient(red 20%, #0000004a 114%)'}, 1000);
                    $('#btnChannelSwitch').animate({marginLeft: '52px'}, 1000);
 
+               }else if(data === '0'){
+                   $('#btnChannel').css({"background": 'radial-gradient(#6c6ce1 20%, #0000004a 114%)'}, 1000);
+                   $('#btnChannelSwitch').animate({marginLeft: '0px'}, 1000);
                }
            }
        });
-
-
     $(`#channel-`+ idUrl).toggleClass("container_channel_play").toggleClass("container_channel");
 });
+$(`#channel-2`).toggleClass("container_channel_play");
