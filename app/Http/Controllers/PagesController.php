@@ -229,8 +229,10 @@ class PagesController extends Controller
     }
 
     public function playerheader(){
-
         $video = [];
-        return view('includes.header');
+        $channel = DB::select('select vk_id from channels where offOn_channel = 1');
+
+        return $channel;
+
     }
 }

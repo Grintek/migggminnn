@@ -133,7 +133,8 @@ Route::group(['middleware' => 'vck'], function (){
 //вехний плеер на стрвнице который находится на странице
     Route::get('/playerheader', [
         'uses' => 'PagesController@playerheader',
-        'as' => 'playerheader'
+        'as' => 'playerheader',
+        'middleware' => 'authe'
     ]);
 
 });
