@@ -78,16 +78,13 @@ body{
     transform: translate(1400px, -88%);
 }
 .blocChat{
+    margin: 8px;
     text-shadow: none;
-    padding-right: 100px;
     padding-left: 10px;
     background: rgba(176,207,184,0.37);
     border-radius: 10px;
 }
-.blocChat_fon{
-    padding: 10px;
-    background-color: rgba(0,83,255,0.2);
-}
+
 .blocAccount{
     margin-right: auto;
     margin-left: auto;
@@ -223,10 +220,13 @@ body{
 }
 .container_news{
     width: 20%;
+    height: 100%;
     float: right;
+    background-color: rgba(0,83,255,0.2);
+    padding-bottom: 100%;
 }
 .container_channel{
-    margin-right: 20px;
+    margin: 20px;
     display: inline-block;
     height: 350px;
     width: 350px;
@@ -238,7 +238,7 @@ body{
     box-shadow: 0px 0px 5px 2px #09a10e, inset 0px 0px 9px 2px #09a10e;
 }
 .container_channel_play{
-    margin-right: 20px;
+    margin: 20px;
     display: inline-block;
     height: 350px;
     width: 350px;

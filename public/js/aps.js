@@ -79,4 +79,4 @@ $('#btnChannel').on('click', function(){
        });
     $(`#channel-`+ idUrl).toggleClass("container_channel_play").toggleClass("container_channel");
 });
-$(`#channel-2`).toggleClass("container_channel_play");
+

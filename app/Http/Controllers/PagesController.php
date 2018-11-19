@@ -227,4 +227,10 @@ class PagesController extends Controller
             return $_GET['switch'] = 0;
         }
     }
+
+    public function playerheader(){
+
+        $video = [];
+        return view('includes.header');
+    }
 }

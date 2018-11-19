@@ -130,6 +130,11 @@ Route::group(['middleware' => 'vck'], function (){
         'uses' => 'PagesController@channelswitch',
         'as' => 'channelswitch.on.of'
     ]);
+//вехний плеер на стрвнице который находится на странице
+    Route::get('/playerheader', [
+        'uses' => 'PagesController@playerheader',
+        'as' => 'playerheader'
+    ]);
 
 });
 
