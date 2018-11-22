@@ -228,11 +228,38 @@ class PagesController extends Controller
         }
     }
 
-    public function playerheader(){
-        $video = [];
-        $channel = DB::select('select vk_id from channels where offOn_channel = 1');
+    /**
+     * получаем последнее видео из запущенных каналов
+     */
+    public function playerheader()
+    {
 
-        return $channel;
+        $channel[] = DB::table('channels')
+            ->where('offOn_channel', '=', 1)
+            ->inRandomOrder()
+            ->first();
+
+        foreach ($channel as $ch) {
+        }
+        $video[] = DB::table('url_movs')
+            ->select('url_mov')
+            ->where('channel_id', '=', $ch->vk_id)
+            ->latest()
+            ->first();
+
+        if (empty($video)){
+            $videoOff[] = DB::table('url_movs')
+                ->select('url_mov')
+                ->inRandomOrder()
+                ->first();
+            foreach ($videoOff as $vOff){
+            }
+
+            return $_GET["video"] = $vOff->url_mov;
+        }
+        foreach ($video as $vid){}
+        return $_GET['video'] = $vid->url_mov;
+
 
     }
 }

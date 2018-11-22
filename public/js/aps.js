@@ -79,4 +79,12 @@ $('#btnChannel').on('click', function(){
        });
     $(`#channel-`+ idUrl).toggleClass("container_channel_play").toggleClass("container_channel");
 });
+//управление главным плеером
 
+$.ajax({
+    type: "GET",
+    url: '/playerheader',
+        success: function (data) {
+            $('#iframe_player').attr('src', data);
+        }
+});
