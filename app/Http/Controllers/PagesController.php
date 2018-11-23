@@ -172,14 +172,19 @@ class PagesController extends Controller
     public function channelId($id)
     {
         if (Auth::user()) {
-            $urlChannel = DB::select('select * from url_movs WHERE channel_id = '.$id);
+            $urlChannel = DB::select('select id, url_mov from url_movs WHERE channel_id = '.$id.' ORDER BY id DESC');
             $channel = DB::select('select * from channels WHERE vk_id = '.$id);
             foreach ($channel as $chann){
             }
             $user = DB::select('select * from vkauths WHERE id = '.$id);
             foreach ($user as $use){
             }
-            return view('channel.channel')->with(['user' => $use, 'channel' => $chann, 'url' => $urlChannel]);
+            //последнее видео
+            foreach($urlChannel as $uri){
+                $as[] = $uri->url_mov;
+            }
+
+            return view('channel.channel')->with(['user' => $use, 'channel' => $chann, 'url' => $urlChannel, 'urlOne' => $as[0]]);
         } else {
             return redirect()->route('home');
         }

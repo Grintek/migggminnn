@@ -3,7 +3,9 @@
 @section('content')
     <div style="width: 80%; float: left;">
         <div class="channel_player">
-            <iframe width="940"  height="500"  src="https://www.youtube.com/embed/73GjdIcU0YI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="940"  height="500"  src="
+            {{$urlOne}}
+            " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <hr>
         @if($user->id === $channel->vk_id)
