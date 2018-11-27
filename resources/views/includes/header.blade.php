@@ -15,6 +15,9 @@ text-shadow: none; margin-left: auto; margin-right: auto">
 
         <div class="navbar" id="bs-example-navbar-collapse-1">
             <ul class="nav nnavbar-nav navbar-right">
+                @if(Auth::user()->isAdmin() == 1)
+                    <li class="nav-link" style="text-shadow: none"><a href="{{route('admin')}}">Админка</a></li>
+                @endif
                 @if(Auth::user())
                     <li class="nav-link" style="text-shadow: none"><a href="{{route('account')}}" style="color: #5e5d5d">Аккаунт</a></li>
 
@@ -23,5 +26,7 @@ text-shadow: none; margin-left: auto; margin-right: auto">
                     <li class="nav-link"><a href="{{route('registr')}}"></a></li>
                 @endif
             </ul>
+        </div>
+        </div>
     </nav>
 </header>
