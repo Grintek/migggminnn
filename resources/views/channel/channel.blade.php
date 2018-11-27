@@ -8,7 +8,7 @@
             " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <hr>
-        @if($user->id === $channel->vk_id)
+        @if(Auth::user()->isAdmin() == 1)
         <div id="btnChannel" class="btn_channel">
             <div id="btnChannelSwitch" class="btn_channel_switch"></div>
         </div>
