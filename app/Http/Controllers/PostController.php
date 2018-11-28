@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         $user = Auth::user();
         if (!empty($user->first_name)) {
-            $channel = DB::select('select * from channels');
+            $channel = DB::select('select * from channels ORDER BY offOn_channel DESC');
             $posts = Post::orderBy('created_at', 'desc')->get();
             return view('dashboard', ['posts' => $posts, 'channel' => $channel]);
         } else {
