@@ -27,7 +27,7 @@
 
             <form action="{{ route('admin.createChanel') }}" method="post" enctype="multipart/form-data">
                 <header><h3>заголовок канала</h3></header>
-                <input type="text" class="form-control" name="caption_chan" id="first_name" value="{{$chan->caption_chan}}">
+                <input type="text" class="form-control" name="caption_chan" id="first_name" value="@if(isset($chan)){{$chan->caption_chan}}@endif">
                 <hr>
                 <div>
                     <label for="image_channel">Изображение канала (only .jpg)</label>
@@ -49,13 +49,18 @@
             </form>
             <hr>
             <h3>Тут аватар канала</h3>
-            @if (Storage::disk('local')->has($chan->caption_chan . '-' . $chan->vk_id . '.jpg'))
+            @if(isset($chan))
+                @if (Storage::disk('local')->has($chan->caption_chan . '-' . $chan->vk_id . '.jpg'))
                 <div style="margin-bottom: 10px">
                     <div style="background: url({{ route('accountedit.image',
                 ['filename' => $chan->caption_chan . '-' . $chan->vk_id . '.jpg']) }}) 50% 50%; background-size: cover;" class="img_user"></div>
                 </div>
                 @else
-
+                <div>
+                    <H1>Фото не загруженно</H1>
+                </div>
+                @endif
+            @else
                 <div>
                     <H1>Фото не загруженно</H1>
                 </div>

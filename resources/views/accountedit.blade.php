@@ -11,11 +11,15 @@
             <header><h3>Your Account</h3></header>
             <form action="{{ route('accountedit.save') }}" method="post" enctype="multipart/form-data">
             <div>
-                <header><h3>First name</h3></header>
+                <h4>Никнейм</h4>
                 <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" id="first_name">
+                <hr>
+                <h4>Email@</h4>
+                <input type="text" name="email" class="form-control" value="{{ $user->email }}" id="email">
             </div>
+                <hr>
             <div>
-                <label for="image">Image (only .jpg)</label>
+                <h4 for="image">Аватар</h4>
                 <input type="file" name="image" class="form-control" id="first_name">
             </div>
             <button type="submit" class="btn btn-primary">Save Account</button>

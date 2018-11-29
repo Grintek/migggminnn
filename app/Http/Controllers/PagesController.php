@@ -100,7 +100,9 @@ class PagesController extends Controller
         $chan = DB::select('select * from channels WHERE vk_id = ' . Auth::user()->id);
         foreach ($chan as $cn) {
         }
-
+        if(!isset($ch)){
+            return view('admin');
+        }
         return view('admin', ['chan' => $cn]);
     }
 
@@ -118,6 +120,7 @@ class PagesController extends Controller
         $channel->description_chan = $request['description_chan'];
         $channel->date_channel = $request['date_channel'];
         $channel->vk_id = $user->id;
+        $channel->offOn_channel = 0;
 
         $files = $request->file('image_channel');
         $filename = $request['caption_chan'] . '-' . $user->id . '.jpg';
@@ -183,8 +186,13 @@ class PagesController extends Controller
             foreach($urlChannel as $uri){
                 $as[] = $uri->url_mov;
             }
-
-            return view('channel.channel')->with(['user' => $use, 'channel' => $chann, 'url' => $urlChannel, 'urlOne' => $as[0]]);
+            if(isset($as)) {
+                return view('channel.channel')->with(['user' => $use, 'channel' => $chann,
+                    'url' => $urlChannel, 'urlOne' => $as[0]]);
+            }else{
+                return view('channel.channel')->with(['user' => $use, 'channel' => $chann,
+                    'url' => $urlChannel]);
+            }
         } else {
             return redirect()->route('home');
         }

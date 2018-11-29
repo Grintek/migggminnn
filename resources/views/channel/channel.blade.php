@@ -4,7 +4,7 @@
     <div style="width: 80%; float: left;">
         <div class="channel_player">
             <iframe width="940"  height="500"  src="
-            {{$urlOne}}
+            @if(isset($urlOne)){{$urlOne}}@endif
             " frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <hr>
