@@ -62,6 +62,9 @@ $.ajax({
         }
     }
 });
+/**
+ * выключить, включить трансляцию
+ */
 $('#btnChannel').on('click', function(){
        $.ajax({
            type: "GET",
@@ -77,10 +80,11 @@ $('#btnChannel').on('click', function(){
                }
            }
        });
-    $(`#channel-`+ idUrl).toggleClass("container_channel_play").toggleClass("container_channel");
-});
-//управление главным плеером
 
+});
+//при наведении на картинку в dashboard
+
+//управление главным плеером
 $.ajax({
     type: "GET",
     url: '/playerheader',

@@ -5,7 +5,7 @@
         <div>
             @foreach($channel as $ch)
                 <button onclick="window.location='{{route('channel.vk.id',[$ch->vk_id])}}'" style="background: url({{ route('accountedit.image',
-                ['filename' => $ch->caption_chan . '-' . $ch->vk_id . '.jpg']) }}) 50% 50%; background-size: cover;" id="channel-{{$ch->vk_id}}" class="
+                ['filename' => $ch->caption_chan . '-' . $ch->vk_id . '.jpg']) }}) 50% 50%; background-size: cover;" id="channelButton" class="
                 @if($ch->offOn_channel === 0)
                         container_channel
                 @else
