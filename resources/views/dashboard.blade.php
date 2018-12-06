@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <section class="container_cont">
+    <div class="container_cont">
         <div>
             @foreach($channel as $ch)
                 <button onclick="window.location='{{route('channel.vk.id',[$ch->vk_id])}}'" style="background: url({{ route('accountedit.image',
@@ -15,13 +15,13 @@
                 </button>
             @endforeach
         </div>
-    </section>
+    </div>
 @endsection
 
 @section('contentBrand')
-    <section class="container_news">
+    <div class="container_news">
 
-    </section>
+    </div>
 
 <script>
     var token = '{{ Session::token() }}';

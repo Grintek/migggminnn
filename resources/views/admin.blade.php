@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="blocLog2" style="margin-top: 20px; padding: 10px">
+    <div class="blocLog2" style="margin-top: 20px; padding: 10px; width: 70%;">
     <section class="row new-post">
         <div class="col-md-6 col-md-offset-3">
             <header><h3>Новый URL стрима</h3></header>

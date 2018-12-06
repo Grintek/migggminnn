@@ -100,7 +100,7 @@ class PagesController extends Controller
         $chan = DB::select('select * from channels WHERE vk_id = ' . Auth::user()->id);
         foreach ($chan as $cn) {
         }
-        if(!isset($ch)){
+        if(!isset($chan)){
             return view('admin');
         }
         return view('admin', ['chan' => $cn]);

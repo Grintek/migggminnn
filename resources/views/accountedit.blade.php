@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <div class="blocLog2" style="margin-top: 20px; padding: 10px;">
-    <section class="row new-post">
-        <div class="col-md-6 col-md-offset-3">
+    <div class="blocLog2" style="margin-top: 20px; padding: 10px; width: 60%">
+    <div class="row new-post">
+        <div class="col-md-offset-3" style="width: 100%; padding: 15px;">
             <header><h3>Your Account</h3></header>
             <form action="{{ route('accountedit.save') }}" method="post" enctype="multipart/form-data">
             <div>
@@ -26,7 +26,7 @@
             <input type="hidden" value="{{ Session::token() }}" name="_token">
             </form>
         </div>
-    </section>
+    </div>
     @if (Storage::disk('local')->has($user->first_name . '-' . $user->id . '.jpg'))
             <div style="margin-bottom: 10px">
                 <div style="background: url({{ route('accountedit.image',

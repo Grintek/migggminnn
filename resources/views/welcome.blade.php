@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="blocLog">
+    <div class="blocLog" style="width: 60%">
         @include('includes.message-block')
        <div class="col-md-6 blocLog2">
             {{--<h3>Sign In</h3>--}}

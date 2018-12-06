@@ -47,6 +47,10 @@ body{
     background-size: 100%;
     background: linear-gradient(#262626, black 30%) no-repeat fixed;
 }
+
+section{
+    display: flex;
+}
 .img{
     height: 50px;
     width: 50px;
@@ -60,10 +64,9 @@ body{
 
 }
 .blocLog2{
-    width: 60%;
+    box-sizing: content-box;
     margin-right: auto;
     margin-left: auto;
-    padding-bottom: 10px;
     background: rgba(0,83,255,0.1);
     border: solid 4px rgba(0,83,255,0.1);
     border-radius: 10px 10px 10px 10px;
@@ -213,17 +216,15 @@ body{
 
 .container_cont{
     padding-top: 10px;
-    padding-left: 11%;
+    padding-left: 9%;
     width: 80%;
     float: left;
     margin-top: 35px;
 }
 .container_news{
     width: 20%;
-    height: 100%;
     float: right;
     background-color: rgba(0,83,255,0.2);
-    padding-bottom: 100%;
 }
 .container_channel{
     margin: 20px;
