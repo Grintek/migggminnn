@@ -87,7 +87,10 @@ section{
     background: rgba(176,207,184,0.37);
     border-radius: 10px;
 }
-
+.blockForm{
+    width: 100%;
+    padding: 10px;
+}
 .blocAccount{
     margin-right: auto;
     margin-left: auto;

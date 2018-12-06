@@ -8,7 +8,7 @@
     <div class="blocLog2" style="margin-top: 20px; padding: 10px; width: 60%">
     <div class="row new-post">
         <div class="col-md-offset-3" style="width: 100%; padding: 15px;">
-            <header><h3>Your Account</h3></header>
+            <h3>Your Account</h3>
             <form action="{{ route('accountedit.save') }}" method="post" enctype="multipart/form-data">
             <div>
                 <h4>Никнейм</h4>

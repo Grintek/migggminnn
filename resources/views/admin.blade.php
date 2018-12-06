@@ -6,9 +6,9 @@
 
 @section('content')
     <div class="blocLog2" style="margin-top: 20px; padding: 10px; width: 70%;">
-    <section class="row new-post">
-        <div class="col-md-6 col-md-offset-3">
-            <header><h3>Новый URL стрима</h3></header>
+    <div class="row new-post">
+        <div class="blockForm">
+            <h3>Новый URL стрима</h3>
             <form action="{{ route('admin.createUrl') }}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="text" class="form-control" name="url_mov" id="new_mov">
@@ -17,16 +17,16 @@
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
             </form>
         </div>
-    </section>
+    </div>
     <div class="navbar line"></div>
 
-    <section class="row new-post">
-        <div class="col-lg-6 col-md-offset-3">
-            <header><h2>Создание своего канала</h2></header>
+    <div class="row new-post">
+        <div class="blockForm">
+            <h2 style="text-align: center;">Создать или обновить канал</h2>
             <div class="line2" style="padding-left: 100%"></div>
 
             <form action="{{ route('admin.createChanel') }}" method="post" enctype="multipart/form-data">
-                <header><h3>заголовок канала</h3></header>
+                <h3>заголовок канала</h3>
                 <input type="text" class="form-control" name="caption_chan" id="first_name" value="@if(isset($chan)){{$chan->caption_chan}}@endif">
                 <hr>
                 <div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <hr>
-                <header><h3>Описание</h3></header>
+                <h3>Описание</h3>
                 <textarea class="form-control" style="padding-bottom: 200px;" name="description_chan" id="first_name"></textarea>
                 <hr>
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
@@ -67,6 +67,6 @@
             @endif
         </div>
 
-    </section>
+    </div>
     </div>
 @endsection
