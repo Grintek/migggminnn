@@ -188,10 +188,10 @@ class PagesController extends Controller
             }
             if(isset($as)) {
                 return view('channel.channel')->with(['user' => $use, 'channel' => $chann,
-                    'url' => $urlChannel, 'urlOne' => $as[0]]);
+                    'url' => $urlChannel, 'urlOne' => $as[0], 'id' => $id]);
             }else{
                 return view('channel.channel')->with(['user' => $use, 'channel' => $chann,
-                    'url' => $urlChannel]);
+                    'url' => $urlChannel, 'id' => $id]);
             }
         } else {
             return redirect()->route('home');
