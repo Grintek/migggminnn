@@ -34,7 +34,7 @@ class PagesController extends Controller
 
             'client_id' => '6607722',
             'client_secret' => env('CLIENT_SECRET', 'PaWvqbzE7qeKtfaijboK'),
-            'redirect_uri' => 'http://127.0.0.1:8000/vkaut',
+            'redirect_uri' => env('APP_URL').'/vkaut',
             'code' => $code
         ];
         $linkToken = 'https://oauth.vk.com/access_token' . '?' . http_build_query($request_token);

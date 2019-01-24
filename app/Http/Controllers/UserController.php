@@ -42,7 +42,7 @@ class UserController extends Controller
 
         $request_params = [
             'client_id' => '6607722',
-            'redirect_uri' => 'http://127.0.0.1:8000/vkaut',
+            'redirect_uri' => env('APP_URL').'/vkaut',
             'response_type' => 'code',
             'display' => 'page',
             'scope' => implode(',', $permissions) // маска битых настроек
