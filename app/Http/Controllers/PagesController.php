@@ -32,8 +32,8 @@ class PagesController extends Controller
 
         $request_token = [
 
-            'client_id' => '6607722',
-            'client_secret' => env('CLIENT_SECRET', 'PaWvqbzE7qeKtfaijboK'),
+            'client_id' => env('CLIENT_ID_VK'),
+            'client_secret' => env('CLIENT_SECRET_VK'),
             'redirect_uri' => env('APP_URL').'/vkaut',
             'code' => $code
         ];

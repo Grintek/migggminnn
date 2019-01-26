@@ -41,7 +41,7 @@ class UserController extends Controller
         ];
 
         $request_params = [
-            'client_id' => '6607722',
+            'client_id' => env('CLIENT_ID_VK'),
             'redirect_uri' => env('APP_URL').'/vkaut',
             'response_type' => 'code',
             'display' => 'page',
