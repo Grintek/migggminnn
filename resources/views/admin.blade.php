@@ -8,6 +8,7 @@
     <div class="blocLog2" style="margin-top: 20px; padding: 10px; width: 70%;">
     <div class="row new-post">
         <div class="blockForm">
+            @include('includes.message-block')
             <h3>Новый URL стрима</h3>
             <form action="{{ route('admin.createUrl') }}" method="post" enctype="multipart/form-data">
                 <div class="form-group">

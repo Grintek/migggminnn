@@ -23,6 +23,7 @@ Route::delete('/test/task/{task}', 'TaskController@panelDelete');
 */
 Route::group(['middleware' => 'vck'], function (){
     Route::get('/', function () {
+
         if(Auth::user()){
             return redirect()->route('dashboard');
         }

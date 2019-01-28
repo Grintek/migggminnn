@@ -112,7 +112,8 @@ class PagesController extends Controller
     public function adminCreateChanel(Request $request)
     {
         $this->validate($request, [
-            'caption_chan' => 'required|min:1'
+            'caption_chan' => 'required|min:1',
+            'image_channel' => 'mimes:jpeg,jpg,png,gif|required|max:10000'
         ]);
         $channel = new Channel();
         $user = Auth::user();

@@ -5,9 +5,11 @@
 @endsection
 
 @section('content')
+
     <div class="blocLog2" style="margin-top: 20px; padding: 10px; width: 60%">
     <div class="row new-post">
         <div class="col-md-offset-3" style="width: 100%; padding: 15px;">
+            @include('includes.message-block')
             <h3>Your Account</h3>
             <form action="{{ route('accountedit.save') }}" method="post" enctype="multipart/form-data">
             <div>
@@ -20,7 +22,7 @@
                 <hr>
             <div>
                 <h4 for="image">Аватар</h4>
-                <input type="file" name="image" class="form-control" id="first_name">
+                <input type="file" name="avatar" class="form-control" id="first_name">
             </div>
             <button type="submit" class="btn btn-primary">Save Account</button>
             <input type="hidden" value="{{ Session::token() }}" name="_token">
@@ -33,7 +35,7 @@
                 ['filename' => $user->first_name . '-' . $user->id . '.jpg']) }}) 50% 50%; background-size: cover;" class="img_user"></div>
             </div>
     @endif
-    @include('includes.message-block')
+
     <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
         <div class="modal-dialog">
             <div class="modal-content">
