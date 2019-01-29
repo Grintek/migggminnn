@@ -5,11 +5,10 @@
 @endsection
 
 @section('content')
-
+    @include('includes.message-block')
     <div class="blocLog2" style="margin-top: 20px; padding: 10px; width: 60%">
     <div class="row new-post">
         <div class="col-md-offset-3" style="width: 100%; padding: 15px;">
-            @include('includes.message-block')
             <h3>Your Account</h3>
             <form action="{{ route('accountedit.save') }}" method="post" enctype="multipart/form-data">
             <div>
