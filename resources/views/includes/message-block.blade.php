@@ -1,13 +1,18 @@
 @if(count($errors) > 0)
-    <div style="position: fixed;
-    left: 34%;">
-        <div class="col-md-4 col-md-offset-4 error">
+    <div class="error" style="    width: 40%;
+    position: fixed;
+    left: 30%;
+    top: 50%;
+    padding: 10px;">
+        <div class="baner_exit">
+            <div class="baner_exit_cross" style="transform: rotate(45deg);"></div>
+            <div class="baner_exit_cross" style="transform: rotate(135deg);"></div>
+        </div>
             <ul>
                 @foreach($errors->all() as $error)
                     <li>{{$error}}</li>
                 @endforeach
             </ul>
-        </div>
     </div>
 @endif
 @if(Session::has('message'))
