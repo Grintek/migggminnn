@@ -92,3 +92,21 @@ $.ajax({
             $('#iframe_player').attr('src', data);
         }
 });
+
+/**
+ * банер ошибки
+ */
+
+//при нажатие на крестик банер ищезает
+$('.baner_exit').on('click', function () {
+   $('.error').css({"display":"none"})
+});
+
+//при наведение мыши на кнопку с иксом
+$('.baner_exit').mouseenter('click', function () {
+    $('.baner_exit').css({"border":"3px solid black"})
+});
+// и наоборот
+$('.baner_exit').mouseleave('click', function () {
+    $('.baner_exit').css({"border":"none"})
+});

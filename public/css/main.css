@@ -27,6 +27,7 @@
     text-align: center;
 }
 .error {
+    z-index: 4;
     border: 1px solid #000000;
     background-color: #484443;
     color: red;
@@ -35,7 +36,7 @@
     -webkit-animation-duration: 2s;
     -moz-animation-duration: 2s;
     -o-animation-duration: 2s;
-    animation-duration: 2s;
+    animation-duration: 900ms;
 }
 .error ul {
     list-style: none;

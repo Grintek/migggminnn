@@ -113,7 +113,7 @@ class PagesController extends Controller
     {
         $this->validate($request, [
             'caption_chan' => 'required|min:1',
-            'image_channel' => 'mimes:jpeg,jpg,png,gif|required|max:10000'
+            'image_channel' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
         ]);
         $channel = new Channel();
         $user = Auth::user();
@@ -133,7 +133,11 @@ class PagesController extends Controller
         foreach ($up_channel as $key) {
         }
         if (empty($request['description_chan'])) {
-            $request['description_chan'] = $key->description_chan;
+            if (empty($up_channel)) {
+                $request['description_chan'] = "pusto";
+            }else{
+                $request['description_chan'] = $key->description_chan;
+            }
         }
         if ($up_channel == null) {
             $channel->save();
